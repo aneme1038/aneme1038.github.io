@@ -9,12 +9,55 @@
   <body>
     <!--HEADER SECTION-->
     <div class="header">
+      <h1>TITLE</h1>
+      <h3>Ready to test your knowledge of the Star Wars Universe?</h3>
+      <a href="#">Arrow Button Here</a>
     </div>
     <!--MAIN SECTION-->
     <div class="main">
+      <div class="instructionsArea">
+        <button id="instructions">Instructions</button>
+      </div>
+      <div class="triviaArea">
+        <div id="scoreBoard">
+        </div>
+        <button id="questionButton">Start Game</button>
+        <div id="difficulty">
+        </div>
+        <div class="questionDisplay">
+        </div>
+        <form>
+          <p>Select your answer below:</p>
+          <div class="answerArea">
+            <div class="answerRow1">
+              <div class ="answerA">
+                <input type="radio" id="answer1" name="answerChoice1" value="A">
+                <label for="answer1">Placeholder for Answer "A"</label>
+              </div>
+              <div class="answerB">
+                <input type="radio" id="answer2" name="answerChoice2" value="B">
+                <label for="answer2">Placeholder for Answer "B"</label>
+              </div>
+            </div>
+            <div class="answerRow2">
+              <div class="answerC">
+                <dl>
+                 <dd id="answerText3"></dd>
+                <input type="radio" id="answer3" name="answerChoice3" value="C">
+                <label for="answer3">Placeholder for Answer "C"</label>
+              </div>
+              <div class="answerD">
+                <input type="radio" id="answer4" name="answerChoice4" value="D">
+                <label for="answer4">Placeholder for Answer "D"</label>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
     <!--FOOTER SECTION-->
     <div class="footer">
+      <!--social media links-->
     </div>
     <!-- SCRIPT REFERENCES -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
