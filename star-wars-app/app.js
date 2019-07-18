@@ -203,9 +203,13 @@ const answerArrayHard = [
 let answer;
 //variable to hold any url to be added/concatenated to the url in AJAX call
 let urlAddText;
-///////////////////
-//AJAX TRIVIA SETUP
-//////////////////
+/////////////////////////
+//EVENT HANDLERS
+////////////////////////
+
+////////////////////////////////
+//AJAX SETUP AND TRIVIA LINKING
+///////////////////////////////
 const ajaxCall = (event) => {
   $.ajax({
     url: 'https://swapi.co/api/',
@@ -215,36 +219,31 @@ const ajaxCall = (event) => {
     //create the question variable to be displayed to be used different difficulty button listeners
     let $question = $('<div>').appendTo($('.questionDisplay'));
     $question.addClass('.questionText');
-    //////////////////////////////////
-    //easy difficulty button listener
-    /////////////////////////////////
-    $('#easyButton').on('click', (event) => {
+    //easy difficulty/////////////////////////////////////////////////////////
+    if ($('#easyButton').text() === 'Selected'){
       //create a textline that shows which difficulty is selected
-      const $selected = $('<p>').text('Easy Difficulty Selected').appendTo($('#difficulty'));
-      $selected.css('font-weight', 'bold');
+      console.log('hi');
         // for (let i = 0; i < )
-    })
-    ///////////////////////////////////
-    //medium difficulty button listener
-    //////////////////////////////////
-    $('#mediumButton').on('click', () => {
-      //for loop and if statements
-    })
-    //////////////////////////////////
-    //hard difficulty button listener
-    //////////////////////////////////
-    $('#hardButton').on('click', () => {
-      //for loop and if statements
-    })
+    } //medium difficulty/////////////////////////////////////////////////////
+    else if ($('#mediumButton').text() === 'Selected'){
+      //for loops and if statements
+    } //hard difficulty //////////////////////////////////////////////////////
+    else if ($('#hardButton').text() === 'Selected'){
 
+    }
   },
   (error) => {
     console.log(error);
   });
 }
-
+//////////////////////////
+//EVENT LISTENERS
+/////////////////////////
 $('#questionButton').on('click', ajaxCall);
-
+$('#easyButton').on('click', easyDifficulty);
+$('#mediumButton').on('click', mediumDifficulty);
+$('#hardButton').on('click', hardDifficulty);
+$('#instructions').on('click', instructions);
 /////////////////////////////
 //CODE TO CONSIDER LATER
 ////////////////////////////
