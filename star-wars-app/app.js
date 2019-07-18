@@ -203,14 +203,55 @@ const answerArrayHard = [
 let answer;
 //variable to hold any url to be added/concatenated to the url in AJAX call
 let urlAddText;
+//variable to hold a indexNumber that will increment through every question and answer
+//when the user clicks the next question button
+let indexNumber;
+let difficulty;
 /////////////////////////
 //EVENT HANDLERS
 ////////////////////////
-
+const instructions = (event) => {
+  //display instructions function in a modal (show the modal)
+}
+const easyDifficulty = (event) => {
+//this function changes the text of the easy button to 'selected'.
+//If it is already selected, change it back to EASY.
+  $('#mediumButton').text('MEDIUM');
+  $('#hardButton').text('HARD');
+  if ($('#easyButton').text() === 'Selected') {
+    $('#easyButton').text('EASY');
+  } else {
+    $('#easyButton').text('Selected');
+  }
+}
+const mediumDifficulty = (event) => {
+  //this function changes the text of the medium button to 'selected'.
+  //If it is already selected, change it back to EASY.
+  //also changes other button text in the event another button is selected
+  $('#easyButton').text('EASY');
+  $('#hardButton').text('HARD');
+  if ($('#mediumButton').text() === 'Selected') {
+    $('#mediumButton').text('MEDIUM');
+  } else {
+    $('#mediumButton').text('Selected');
+  }
+}
+const hardDifficulty = (event) => {
+  //this function changes the text of the hard button to 'selected'.
+  //If it is already selected, change it back to EASY.
+  //also changes other button text in the event another button is selected
+  $('#easyButton').text('EASY');
+  $('#mediumButton').text('MEDIUM');
+  if ($('#hardButton').text() === 'Selected') {
+    $('#hardButton').text('HARD');
+  } else {
+    $('#hardButton').text('Selected');
+  }
+}
 ////////////////////////////////
 //AJAX SETUP AND TRIVIA LINKING
 ///////////////////////////////
-const ajaxCall = (event) => {
+$('#questionButton').on('click', (event) => {
   $.ajax({
     url: 'https://swapi.co/api/',
     type: "GET"
@@ -222,7 +263,7 @@ const ajaxCall = (event) => {
     //easy difficulty/////////////////////////////////////////////////////////
     if ($('#easyButton').text() === 'Selected'){
       //create a textline that shows which difficulty is selected
-      console.log('hi');
+
         // for (let i = 0; i < )
     } //medium difficulty/////////////////////////////////////////////////////
     else if ($('#mediumButton').text() === 'Selected'){
@@ -235,11 +276,10 @@ const ajaxCall = (event) => {
   (error) => {
     console.log(error);
   });
-}
+};
 //////////////////////////
 //EVENT LISTENERS
 /////////////////////////
-$('#questionButton').on('click', ajaxCall);
 $('#easyButton').on('click', easyDifficulty);
 $('#mediumButton').on('click', mediumDifficulty);
 $('#hardButton').on('click', hardDifficulty);
