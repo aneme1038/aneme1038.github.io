@@ -196,6 +196,9 @@ const answerArrayHard = [
   /*Question 29*/[/*answer*/" ", "Tarkin", "Utapaun", "Rose"],
   /*Question 30*/["Almec", "Lux Bonteri", "Tobias Beckett", /*answer*/" "],
 ];
+const rightAnswersLog = [];
+const wrongAnswersLog = [];
+const correctAnswers = ["C", "D", "A", "B", "B", "D", "C", "A", "A", "D", "C", "D", "A", "B", "B", "D", "C", "A", "A", "D", "D", "D", "A", "B", "B", "D", "C", "A", "A", "D"];
 ////////////////////////////////////////
 //DATASET OBJECT CONTAINING ANSWER URLS
 ///////////////////////////////////////
@@ -303,14 +306,19 @@ const datasetAnswers = {
 //GLOBAL VARIABLES BESIDES ARRAYS
 ////////////////////////////////
 //variable to hold any answer no matter what answer. Variable is a STRING
-let answer;
+let $answer;
 //variable to hold any url to be added/concatenated to the url in AJAX call
 let urlAddText;
 //variable to hold a indexNumber that will increment through every question and answer
-//when the user clicks the next question button
+//when the user clicks the next question button, the indexNumber increments
 let indexNumber = 0;
+//when user clicks the next question button the answerNumber increments
 let answerNumber = 0;
-let triviaState = false;
+//a variable that will hold the url for the question number to get the right
+//answer
+let correctAnswersNumber = 0;
+//variable that will hold the selected radio button's value
+let $selectedAnswer;
 /////////////////////////
 //EVENT HANDLERS
 ////////////////////////
@@ -376,9 +384,30 @@ const assignAnswers = () => {
     }
   }
 }
+//increment indexnumber
 const incrementIndex = () => {
   indexNumber++;
   return indexNumber;
+}
+const answerSubmit = (event) => {
+  let $form = $('form');
+  console.log($form);
+  $form.on('submit', (event) => {
+    $selectedAnswer = $('input').attr('value');
+    console.log(selectedAnswer);
+
+    //if the selected answer is equal to the correct answers array element
+    if ($selectedAnswer === correctAnswers[correctAnswersNumber]) {
+      rightAnswersLog.push($selectedAnswer);
+      console.log(rightAnswersLog);
+      correctAnswersNumber++;
+    } else {
+      wrongAnswersLog.push($selectedAnswer);
+      console.log(wrongAnswersLog);
+      correctAnswersNumber++;
+    }
+    event.preventDefault();
+  });
 }
 //difficulty fuction that will determine if user can start the trivia  by showing the
 //question button
@@ -449,12 +478,14 @@ $('#startGameButton').on('click', (event) => {
         $question.text(questionArrayEasy[indexNumber]);
         console.log($question);
         assignAnswers();
+        $('#submitAnswer').on('click', answerSubmit);
       }
       $('#questionButton').on('click', (event) => {
         if (indexNumber < questionArrayEasy.length){
           incrementIndex();
           $question.text(questionArrayEasy[indexNumber]);
           assignAnswers();
+          $('#submitAnswer').on('click', answerSubmit);
         }
       })      // for (let i = 0; i < )
     } //medium difficulty/////////////////////////////////////////////////////
@@ -463,12 +494,14 @@ $('#startGameButton').on('click', (event) => {
         $question.text(questionArrayMedium[indexNumber]);
         console.log($question);
         assignAnswers();
+        $('#submitAnswer').on('click', answerSubmit);
       }
       $('#questionButton').on('click', (event) => {
         if (indexNumber < questionArrayMedium.length){
           incrementIndex();
           $question.text(questionArrayMedium[indexNumber]);
           assignAnswers();
+          $('#submitAnswer').on('click', answerSubmit);
         }
       })      // for (let i = 0; i < )
     } //hard difficulty //////////////////////////////////////////////////////
@@ -477,12 +510,14 @@ $('#startGameButton').on('click', (event) => {
         $question.text(questionArrayHard[indexNumber]);
         console.log($question);
         assignAnswers();
+        $('#submitAnswer').on('click', answerSubmit);
       }
       $('#questionButton').on('click', (event) => {
         if (indexNumber < questionArrayHard.length){
           incrementIndex();
           $question.text(questionArrayHard[indexNumber]);
           assignAnswers();
+          $('#submitAnswer').on('click', answerSubmit);
         }
       })      // for (let i = 0; i < )
     }

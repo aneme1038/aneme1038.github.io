@@ -35,7 +35,7 @@
             <dd id="question"></dd>
           </dl>
         </div>
-        <form>
+        <form id="answerForm" onsubmit='answerSubmit();'>
           <p>Select your answer below:</p>
           <div class="answerArea">
             <div class="answerRow1">
@@ -59,7 +59,9 @@
               </div>
             </div>
           </div>
+          <input type="submit" id="submitAnswer">
         </form>
+
       </div>
     </div>
     <!--FOOTER SECTION-->
