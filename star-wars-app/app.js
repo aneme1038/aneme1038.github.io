@@ -199,102 +199,104 @@ const answerArrayHard = [
 ////////////////////////////////////////
 //DATASET OBJECT CONTAINING ANSWER URLS
 ///////////////////////////////////////
+//any false data value means the answer was not found in dataset or the answer is
+//not a name or contains multiple names
 const datasetAnswers = {
   easy: {
-    q1:,
-    q2:,
-    q3:,
-    q4:,
-    q5:,
-    q6:,
-    q7:,
-    q8:,
-    q9:,
-    q10:,
-    q11:,
-    q12:,
-    q13:,
-    q14:,
-    q15:,
-    q16:,
-    q17:,
-    q18:,
-    q19:,
-    q20:,
-    q21:,
-    q22:,
-    q23:,
-    q24:,
-    q25:,
-    q26:,
-    q27:,
-    q28:,
-    q29:,
-    q30:
+    q1: "people/44/",
+    q2: "people/11/",
+    q3: "planets/8/",
+    q4: "people/51/",
+    q5: "people/10/",
+    q6: "planets/10/",
+    q7: "people/10/",
+    q8: false,
+    q9: "species/12/",
+    q10: false,
+    q11: "people/27/",
+    q12: "people/25/",
+    q13: "people/11/",
+    q14: "planets/5/",
+    q15: "starships/9/",
+    q16: "planets/7/",
+    q17: "planets/2/",
+    q18: "species/9/",
+    q19: "people/6/",
+    q20: "people/21/",
+    q21: false,
+    q22: "planets/61/",
+    q23: "people/13/",
+    q24: false,
+    q25: "people/5/",
+    q26: false,
+    q27: "people/20/",
+    q28: false,
+    q29: "people/84/",
+    q30: "people/88/"
   },
   medium: {
-    q1:,
-    q2:,
-    q3:,
-    q4:,
-    q5:,
-    q6:,
-    q7:,
-    q8:,
-    q9:,
-    q10:,
-    q11:,
-    q12:,
-    q13:,
-    q14:,
-    q15:,
-    q16:,
-    q17:,
-    q18:,
-    q19:,
-    q20:,
-    q21:,
-    q22:,
-    q23:,
-    q24:,
-    q25:,
-    q26:,
-    q27:,
-    q28:,
-    q29:,
-    q30:
+    q1: "people/67/",
+    q2: "people/62/",
+    q3: false,
+    q4: false,
+    q5: "people/41/",
+    q6: "True",
+    q7: "people/14/",
+    q8: false,
+    q9: "people/11/",
+    q10: "people/1/",
+    q11: false,
+    q12: false,
+    q13: "people/15/",
+    q14: false,
+    q15: false,
+    q16: false,
+    q17: false,
+    q18: false,
+    q19: "planets/5/",
+    q20: false,
+    q21: false,
+    q22: false,
+    q23: false,
+    q24: "people/84/",
+    q25: "people/5/",
+    q26: false,
+    q27: false,
+    q28: false,
+    q29: false,
+    q30: false
   },
   hard: {
-    q1:,
-    q2:,
-    q3:,
-    q4:,
-    q5:,
-    q6:,
-    q7:,
-    q8:,
-    q9:,
-    q10:,
-    q11:,
-    q12:,
-    q13:,
-    q14:,
-    q15:,
-    q16:,
-    q17:,
-    q18:,
-    q19:,
-    q20:,
-    q21:,
-    q22:,
-    q23:,
-    q24:,
-    q25:,
-    q26:,
-    q27:,
-    q28:,
-    q29:,
-    q30:
+    q1: false,
+    q2: "vehicles/38/",
+    q3: false,
+    q4: false,
+    q5: "people/33/",
+    q6: false,
+    q7: false,
+    q8: "people/73/",
+    q9: false,
+    q10: false,
+    q11: false,
+    q12: false,
+    q13: false,
+    q14: "vehicles/18/",
+    q15: "people/26/",
+    q16: "people/45/",
+    q17: "people/16/",
+    q18: false,
+    q19: "people/30",
+    q20: "starships/11/",
+    q21: false,
+    q22: false,
+    q23: false,
+    q24: false,
+    q25: false,
+    q26: false, /*can probably find this species*/
+    q27: false,
+    q28: false,
+    q29: false,
+    q30: false
   }
 }
 //GLOBAL VARIABLES BESIDES ARRAYS
@@ -305,17 +307,27 @@ let answer;
 let urlAddText;
 //variable to hold a indexNumber that will increment through every question and answer
 //when the user clicks the next question button
-let indexNumber;
-let difficulty;
+let indexNumber = 0;
+let triviaState = false;
 /////////////////////////
 //EVENT HANDLERS
 ////////////////////////
-const instructions = (event) => {
-  //display instructions function in a modal (show the modal)
+//difficulty fuction that will determine if user can start the trivia  by showing the
+//question button
+const difficulty = () => {
+  if ($('#easyButton').text() === 'Selected' || $('#mediumButton').text() === 'Selected' || $('#hardButton').text() === 'Selected') {
+    return true;
+  } else {
+    return false;
+  }
 }
-const easyDifficulty = (event) => {
+//display instructions function in a modal (show the modal)
+const instructions = (event) => {
+
+}
 //this function changes the text of the easy button to 'selected'.
 //If it is already selected, change it back to EASY.
+const easyDifficulty = (event) => {
   $('#mediumButton').text('MEDIUM');
   $('#hardButton').text('HARD');
   if ($('#easyButton').text() === 'Selected') {
@@ -324,10 +336,10 @@ const easyDifficulty = (event) => {
     $('#easyButton').text('Selected');
   }
 }
+//this function changes the text of the medium button to 'selected'.
+//If it is already selected, change it back to EASY.
+//also changes other button text in the event another button is selected
 const mediumDifficulty = (event) => {
-  //this function changes the text of the medium button to 'selected'.
-  //If it is already selected, change it back to EASY.
-  //also changes other button text in the event another button is selected
   $('#easyButton').text('EASY');
   $('#hardButton').text('HARD');
   if ($('#mediumButton').text() === 'Selected') {
@@ -336,10 +348,10 @@ const mediumDifficulty = (event) => {
     $('#mediumButton').text('Selected');
   }
 }
+//this function changes the text of the hard button to 'selected'.
+//If it is already selected, change it back to EASY.
+//also changes other button text in the event another button is selected
 const hardDifficulty = (event) => {
-  //this function changes the text of the hard button to 'selected'.
-  //If it is already selected, change it back to EASY.
-  //also changes other button text in the event another button is selected
   $('#easyButton').text('EASY');
   $('#mediumButton').text('MEDIUM');
   if ($('#hardButton').text() === 'Selected') {
@@ -351,7 +363,7 @@ const hardDifficulty = (event) => {
 ////////////////////////////////
 //AJAX SETUP AND TRIVIA LINKING
 ///////////////////////////////
-$('#questionButton').on('click', (event) => {
+$('#startGameButton').on('click', (event) => {
   $.ajax({
     url: 'https://swapi.co/api/',
     type: "GET"
@@ -362,12 +374,24 @@ $('#questionButton').on('click', (event) => {
     $question.addClass('.questionText');
     //easy difficulty/////////////////////////////////////////////////////////
     if ($('#easyButton').text() === 'Selected'){
-      //create a textline that shows which difficulty is selected
-
-        // for (let i = 0; i < )
+      if (difficulty() === true){
+        //assign question 1 of easy array to question.text
+        //display first question.
+        if (indexNumber === 0) {
+          $question.text(questionArrayEasy[indexNumber])
+        }
+        $('#questionButton').on('click', (event) => {
+          if (indexNumber < questionArrayEasy.length){
+            indexNumber++;
+            $question.text(questionArrayEasy[indexNumber]);
+          }
+        })
+      }      // for (let i = 0; i < )
     } //medium difficulty/////////////////////////////////////////////////////
     else if ($('#mediumButton').text() === 'Selected'){
+      if ($(event.currentTarget) === true){
       //for loops and if statements
+      }
     } //hard difficulty //////////////////////////////////////////////////////
     else if ($('#hardButton').text() === 'Selected'){
 
