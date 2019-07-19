@@ -337,7 +337,7 @@ const easyDifficulty = (event) => {
   }
 }
 //this function changes the text of the medium button to 'selected'.
-//If it is already selected, change it back to EASY.
+//If it is already selected, change it back to MEDIUM.
 //also changes other button text in the event another button is selected
 const mediumDifficulty = (event) => {
   $('#easyButton').text('EASY');
@@ -349,7 +349,7 @@ const mediumDifficulty = (event) => {
   }
 }
 //this function changes the text of the hard button to 'selected'.
-//If it is already selected, change it back to EASY.
+//If it is already selected, change it back to HARD.
 //also changes other button text in the event another button is selected
 const hardDifficulty = (event) => {
   $('#easyButton').text('EASY');
