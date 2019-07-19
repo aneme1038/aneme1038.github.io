@@ -196,7 +196,107 @@ const answerArrayHard = [
   /*Question 29*/[/*answer*/" ", "Tarkin", "Utapaun", "Rose"],
   /*Question 30*/["Almec", "Lux Bonteri", "Tobias Beckett", /*answer*/" "],
 ];
-/////////////////////////////////
+////////////////////////////////////////
+//DATASET OBJECT CONTAINING ANSWER URLS
+///////////////////////////////////////
+const datasetAnswers = {
+  easy: {
+    q1:,
+    q2:,
+    q3:,
+    q4:,
+    q5:,
+    q6:,
+    q7:,
+    q8:,
+    q9:,
+    q10:,
+    q11:,
+    q12:,
+    q13:,
+    q14:,
+    q15:,
+    q16:,
+    q17:,
+    q18:,
+    q19:,
+    q20:,
+    q21:,
+    q22:,
+    q23:,
+    q24:,
+    q25:,
+    q26:,
+    q27:,
+    q28:,
+    q29:,
+    q30:
+  },
+  medium: {
+    q1:,
+    q2:,
+    q3:,
+    q4:,
+    q5:,
+    q6:,
+    q7:,
+    q8:,
+    q9:,
+    q10:,
+    q11:,
+    q12:,
+    q13:,
+    q14:,
+    q15:,
+    q16:,
+    q17:,
+    q18:,
+    q19:,
+    q20:,
+    q21:,
+    q22:,
+    q23:,
+    q24:,
+    q25:,
+    q26:,
+    q27:,
+    q28:,
+    q29:,
+    q30:
+  },
+  hard: {
+    q1:,
+    q2:,
+    q3:,
+    q4:,
+    q5:,
+    q6:,
+    q7:,
+    q8:,
+    q9:,
+    q10:,
+    q11:,
+    q12:,
+    q13:,
+    q14:,
+    q15:,
+    q16:,
+    q17:,
+    q18:,
+    q19:,
+    q20:,
+    q21:,
+    q22:,
+    q23:,
+    q24:,
+    q25:,
+    q26:,
+    q27:,
+    q28:,
+    q29:,
+    q30:
+  }
+}
 //GLOBAL VARIABLES BESIDES ARRAYS
 ////////////////////////////////
 //variable to hold any answer no matter what answer. Variable is a STRING
@@ -276,7 +376,7 @@ $('#questionButton').on('click', (event) => {
   (error) => {
     console.log(error);
   });
-};
+});
 //////////////////////////
 //EVENT LISTENERS
 /////////////////////////
