@@ -299,6 +299,7 @@ const datasetAnswers = {
     q30: false
   }
 }
+/////////////////////////////////
 //GLOBAL VARIABLES BESIDES ARRAYS
 ////////////////////////////////
 //variable to hold any answer no matter what answer. Variable is a STRING
@@ -312,6 +313,25 @@ let triviaState = false;
 /////////////////////////
 //EVENT HANDLERS
 ////////////////////////
+//this function when called will assign the answers to the radio button labels for each question
+const assignAnswers = () => {
+  if ($('#easyButton').text() === 'Selected') {
+    $('#answerText1').text($easyAnswerA);
+    $('#answerText2').text($easyAnswerB);
+    $('#answerText3').text($easyAnswerC);
+    $('#answerText4').text($easyAnswerD);
+  } else if ($('#mediumButton').text() === 'Selected') {
+    $('#answerText1').text($mediumAnswerA);
+    $('#answerText2').text($mediumAnswerB);
+    $('#answerText3').text($mediumAnswerC);
+    $('#answerText4').text($mediumAnswerD);
+  } else if ($('#hardButton').text() === 'Selected') {
+    $('#answerText1').text($hardAnswerA);
+    $('#answerText2').text($hardAnswerB);
+    $('#answerText3').text($hardAnswerC);
+    $('#answerText4').text($hardAnswerD);
+  }
+}
 //difficulty fuction that will determine if user can start the trivia  by showing the
 //question button
 const difficulty = () => {
@@ -372,29 +392,61 @@ $('#startGameButton').on('click', (event) => {
     //create the question variable to be displayed to be used different difficulty button listeners
     let $question = $('<div>').appendTo($('.questionDisplay'));
     $question.addClass('.questionText');
+    let $easyAnswerA = answerArrayEasy[indexNumber][0];
+    let $easyAnswerB = answerArrayEasy[indexNumber][1];
+    let $easyAnswerC = answerArrayEasy[indexNumber][2];
+    let $easyAnswerD = answerArrayEasy[indexNumber][3];
+    let $mediumAnswerA = answerArrayMedium[indexNumber][0];
+    let $mediumAnswerB = answerArrayMedium[indexNumber][1];
+    let $mediumAnswerC = answerArrayMedium[indexNumber][2];
+    let $mediumAnswerD = answerArrayMedium[indexNumber][3];
+    let $hardAnswerA = answerArrayHard[indexNumber][0];
+    let $hardAnswerB = answerArrayHard[indexNumber][1];
+    let $hardAnswerC = answerArrayHard[indexNumber][2];
+    let $hardAnswerD = answerArrayHard[indexNumber][3];
+
     //easy difficulty/////////////////////////////////////////////////////////
     if ($('#easyButton').text() === 'Selected'){
-      if (difficulty() === true){
-        //assign question 1 of easy array to question.text
-        //display first question.
-        if (indexNumber === 0) {
-          $question.text(questionArrayEasy[indexNumber])
+      //assign question 1 of easy array to question.text
+      //display first question.
+      if (indexNumber === 0) {
+        $question.text(questionArrayEasy[indexNumber]);
+        console.log($question);
+      }
+      $('#questionButton').on('click', (event) => {
+        if (indexNumber < questionArrayEasy.length){
+          indexNumber++;
+          $question.text(questionArrayEasy[indexNumber]);
+          $('#answerText1').text($easyAnswerA);
+          $('#answerText2').text($easyAnswerB);
+          $('#answerText3').text($easyAnswerC);
+          $('#answerText4').text($easyAnswerD);
         }
-        $('#questionButton').on('click', (event) => {
-          if (indexNumber < questionArrayEasy.length){
-            indexNumber++;
-            $question.text(questionArrayEasy[indexNumber]);
-          }
-        })
-      }      // for (let i = 0; i < )
+      })      // for (let i = 0; i < )
     } //medium difficulty/////////////////////////////////////////////////////
     else if ($('#mediumButton').text() === 'Selected'){
-      if ($(event.currentTarget) === true){
-      //for loops and if statements
+      if (indexNumber === 0) {
+        $question.text(questionArrayMedium[indexNumber]);
+        console.log($question);
       }
+      $('#questionButton').on('click', (event) => {
+        if (indexNumber < questionArrayMedium.length){
+          indexNumber++;
+          $question.text(questionArrayMedium[indexNumber]);
+        }
+      })      // for (let i = 0; i < )
     } //hard difficulty //////////////////////////////////////////////////////
     else if ($('#hardButton').text() === 'Selected'){
-
+      if (indexNumber === 0) {
+        $question.text(questionArrayHard[indexNumber]);
+        console.log($question);
+      }
+      $('#questionButton').on('click', (event) => {
+        if (indexNumber < questionArrayHard.length){
+          indexNumber++;
+          $question.text(questionArrayHard[indexNumber]);
+        }
+      })      // for (let i = 0; i < )
     }
   },
   (error) => {
