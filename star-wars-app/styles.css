@@ -1,3 +1,51 @@
+@font-face {
+    font-family: 'distant_galaxyregular';
+    src: url('fonts/web-fonts/distantgalaxy_regular_macroman/DISTGRG_-webfont.eot');
+    src: url('fonts/web-fonts/distantgalaxy_regular_macroman/DISTGRG_-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/web-fonts/distantgalaxy_regular_macroman/DISTGRG_-webfont.woff') format('woff'),
+         url('fonts/web-fonts/distantgalaxy_regular_macroman/DISTGRG_-webfont.ttf') format('truetype'),
+         url('fonts/web-fonts/distantgalaxy_regular_macroman/DISTGRG_-webfont.svg#distant_galaxyregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
 body {
   font-size: 1em;
+  margin: -1px;
+}
+.header {
+  background-image: url("images/darth_vader.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 20em;
+  font-family: 'distant_galaxyregular';
+  letter-spacing: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.header h1 {
+  margin: 0;
+  font-size: 2.5em;
+  color: yellow;
+  margin-left: 50px;
+  margin-top: 50px;
+}
+.header h3 {
+  color: #F2DCC2;
+  margin-left: 50px;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background-image: url("images/stars.png"); */
+  color: black;
+  font-family: 'distant_galaxyregular';
+  font-size: 2em;
+}
+.footer {
+  height: 5em;
+  background-color: #F2DCC2;
+  margin-bottom: 0;
 }

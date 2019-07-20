@@ -1,3 +1,4 @@
+
 /////////////////////////////////////////////////////////////////////////////
 //STAR WARS QUESTION AND ANSWER SECTION
 // - All Star Wars questions (and their difficulty)
@@ -112,36 +113,36 @@ const correctAnswers = ["C", "D", "A", "B", "B", "D", "C", "A", "A", "D", "C", "
 //not a name or contains multiple names
 const datasetAnswers = {
   easy: [
-    "https://swapi.co/api/people/44/",
-    "https://swapi.co/api/people/11/",
-    "https://swapi.co/api/planets/8/",
-    "https://swapi.co/api/people/51/",
-    "https://swapi.co/api/people/10/",
-    "https://swapi.co/api/planets/10/",
-    "https://swapi.co/api/people/10/",
+    "people/44/",
+    "people/11/",
+    "planets/8/",
+    "people/51/",
+    "people/10/",
+    "planets/10/",
+    "people/10/",
     false,
-    "https://swapi.co/api/species/12/",
+    "species/12/",
     false,
-    "https://swapi.co/api/people/27/",
-    "https://swapi.co/api/people/25/",
-    "https://swapi.co/api/people/11/",
-    "https://swapi.co/api/planets/5/",
-    "https://swapi.co/api/starships/9/",
-    "https://swapi.co/api/planets/7/",
-    "https://swapi.co/api/planets/2/",
-    "https://swapi.co/api/species/9/",
-    "https://swapi.co/api/people/6/",
-    "https://swapi.co/api/people/21/",
+    "people/27/",
+    "people/25/",
+    "people/11/",
+    "planets/5/",
+    "starships/9/",
+    "planets/7/",
+    "planets/2/",
+    "species/9/",
+    "people/6/",
+    "people/21/",
     false,
-    "https://swapi.co/api/planets/61/",
-    "https://swapi.co/api/people/13/",
+    "planets/61/",
+    "people/13/",
     false,
-    "https://swapi.co/api/people/5/",
+    "people/5/",
     false,
-    "https://swapi.co/api/people/20/",
+    "people/20/",
     false,
-    "https://swapi.co/api/people/84/",
-    "https://swapi.co/api/people/88/"
+    "people/84/",
+    "people/88/"
   ],
   medium: {
     q1: "people/67/",
@@ -211,8 +212,7 @@ const datasetAnswers = {
 /////////////////////////////////
 //GLOBAL VARIABLES BESIDES ARRAYS
 ////////////////////////////////
-//variable to be used in the dataSetIteration function
-let $urlAddText;
+
 //variable to hold a indexNumber that will increment through every question and answer
 //when the user clicks the next question button, the indexNumber increments
 let indexNumber = 0;
@@ -227,23 +227,30 @@ let dataSetIndexNumber = 0;
 /////////////////////////
 //EVENT HANDLERS
 ////////////////////////
+// console.log(datasetAnswers.easy.length);
 const dataSetIteration = () => {
+  // console.log(dataSetIndexNumber);
+  // console.log($('#easyButton').text());
+  // console.log(datasetAnswers.easy.length);
+  //variable to be used in the dataSetIteration function
+  let urlAddText;
   if ($('#easyButton').text() === 'Selected'){
     if (dataSetIndexNumber < datasetAnswers.easy.length) {
       //grab the first key value pair
-      $urlAddText = datasetAnswers.easy[dataSetIndexNumber];
-      console.log(urlAddText);
+      urlAddText = datasetAnswers.easy[dataSetIndexNumber];
+      // console.log(urlAddText);
       dataSetIndexNumber++;
-      console.log(dataSetIndexNumber);
+      // console.log(dataSetIndexNumber);
     }
+  } else {
+    dataIndexNumber = 0;
   }
-  return $urlAddText;
+  return urlAddText;
 }
-//variable to hold the return value of the dataSetIteration function
-let $updatedURL = dataSetIteration();
-console.log($updatedURL);
+
 const answerSubmit = (event) => {
   event.preventDefault();
+  $('.questionDisplay').empty();
   $selectedAnswer = $('input[name="answerChoice"]:checked').val();
   console.log($selectedAnswer);
   //if the selected answer is equal to the correct answers array element
@@ -306,15 +313,25 @@ const hardDifficulty = (event) => {
     $('#hardButton').text('Selected');
   }
 }
+//variable to hold the return value of the dataSetIteration function
+let updatedURL;
+
 ////////////////////////////////
 //AJAX SETUP AND TRIVIA LINKING
 ///////////////////////////////
-$('#startGameButton').on('click', (event) => {
+$('.runData',).on('click', (event) => {
+  updatedURL = dataSetIteration();
+  console.log(updatedURL);
   $.ajax({
-    url: $updatedURL,
-    type: "GET"
+    url: "https://swapi.co/api/" + updatedURL,
+    type: "GET",
+    // dataType: "script",
+    // cache: true,
+    // async: true, //NO longer allowed to be false by browser
+    // global: false,
+    // "throws": true
   }).then( (data) => {
-    console.log(data);
+    // console.log(data);
     const answerArrayEasy = [
       /*Question 1*/["Qui-Gon", "Obi-Wan-Kenobi", /*answer*/data.name, "Vader"],
       /*Question 2*/["Watta", "Luke Skywalker", "Schmi Skywalker", /*answer*/data.name],
@@ -411,22 +428,23 @@ $('#startGameButton').on('click', (event) => {
       /*Question 29*/[/*answer*/" ", "Tarkin", "Utapaun", "Rose"],
       /*Question 30*/["Almec", "Lux Bonteri", "Tobias Beckett", /*answer*/" "],
     ];
+    //answer variables for radio buttons
+    let $easyAnswerA = answerArrayEasy[answerNumber][0];
+    let $easyAnswerB = answerArrayEasy[answerNumber][1];
+    let $easyAnswerC = answerArrayEasy[answerNumber][2];
+    let $easyAnswerD = answerArrayEasy[answerNumber][3];
+    let $mediumAnswerA = answerArrayMedium[answerNumber][0];
+    let $mediumAnswerB = answerArrayMedium[answerNumber][1];
+    let $mediumAnswerC = answerArrayMedium[answerNumber][2];
+    let $mediumAnswerD = answerArrayMedium[answerNumber][3];
+    let $hardAnswerA = answerArrayHard[answerNumber][0];
+    let $hardAnswerB = answerArrayHard[answerNumber][1];
+    let $hardAnswerC = answerArrayHard[answerNumber][2];
+    let $hardAnswerD = answerArrayHard[answerNumber][3];
     //this function when called will assign the answers to the radio button labels for each question
     const assignAnswers = () => {
       //variable to hold index of answer arrays
       //variables to hold answers for the radio buttons
-      let $easyAnswerA = answerArrayEasy[answerNumber][0];
-      let $easyAnswerB = answerArrayEasy[answerNumber][1];
-      let $easyAnswerC = answerArrayEasy[answerNumber][2];
-      let $easyAnswerD = answerArrayEasy[answerNumber][3];
-      let $mediumAnswerA = answerArrayMedium[answerNumber][0];
-      let $mediumAnswerB = answerArrayMedium[answerNumber][1];
-      let $mediumAnswerC = answerArrayMedium[answerNumber][2];
-      let $mediumAnswerD = answerArrayMedium[answerNumber][3];
-      let $hardAnswerA = answerArrayHard[answerNumber][0];
-      let $hardAnswerB = answerArrayHard[answerNumber][1];
-      let $hardAnswerC = answerArrayHard[answerNumber][2];
-      let $hardAnswerD = answerArrayHard[answerNumber][3];
       if (answerNumber < answerArrayEasy.length || answerNumber < answerArrayMedium.length || answerNumber < answerArrayHard.length){
         if ($('#easyButton').text() === 'Selected') {
           if (answerNumber === 0) {
@@ -434,15 +452,13 @@ $('#startGameButton').on('click', (event) => {
             $('#answerText2').text($easyAnswerB);
             $('#answerText3').text($easyAnswerC);
             $('#answerText4').text($easyAnswerD);
-            answerNumber++;
-            console.log(answerNumber);
+            // console.log(answerNumber);
           } else if (answerNumber > 0){
             $('#answerText1').text($easyAnswerA);
             $('#answerText2').text($easyAnswerB);
             $('#answerText3').text($easyAnswerC);
             $('#answerText4').text($easyAnswerD);
-            answerNumber++;
-            console.log(answerNumber);
+            // console.log(answerNumber);
           }
         } else if ($('#mediumButton').text() === 'Selected') {
           if (answerNumber === 0) {
@@ -450,13 +466,11 @@ $('#startGameButton').on('click', (event) => {
             $('#answerText2').text($mediumAnswerB);
             $('#answerText3').text($mediumAnswerC);
             $('#answerText4').text($mediumAnswerD);
-            answerNumber++;
           } else if (answerNumber > 0){
             $('#answerText1').text($mediumAnswerA);
             $('#answerText2').text($mediumAnswerB);
             $('#answerText3').text($mediumAnswerC);
             $('#answerText4').text($mediumAnswerD);
-            answerNumber++;
           }
         } else if ($('#hardButton').text() === 'Selected') {
           if (answerNumber === 0) {
@@ -464,80 +478,58 @@ $('#startGameButton').on('click', (event) => {
             $('#answerText2').text($hardAnswerB);
             $('#answerText3').text($hardAnswerC);
             $('#answerText4').text($hardAnswerD);
-            answerNumber++;
           } else if (answerNumber > 0){
             $('#answerText1').text($hardAnswerA);
             $('#answerText2').text($hardAnswerB);
             $('#answerText3').text($hardAnswerC);
             $('#answerText4').text($hardAnswerD);
-            answerNumber++;
           }
         }
       }
+      answerNumber++;
     }
     //create the question variable to be displayed to be used different difficulty button listeners
     let $question = $('<div>').appendTo($('.questionDisplay'));
     $question.addClass('.questionText');
     //easy difficulty/////////////////////////////////////////////
     if ($('#easyButton').text() === 'Selected'){
-      if (indexNumber === 0) {
+      if (indexNumber >= 0 && indexNumber < questionArrayEasy.length) {
         //assign question 1 of easy array to question.text
         //display first question.
         $question.text(questionArrayEasy[indexNumber]);
-        //grab the url to concatenate into the ajax call
-        $updatedURL = dataSetIteration();
-        //assign answers passing in data from url
         assignAnswers();
         indexNumber++;
         event.preventDefault();
+        $('#submitAnswer').on('click', answerSubmit);
+      } else {
+        // gameOver();
       }
-      $('#questionButton').on('click', (event) => {
-        if (indexNumber > 0 && indexNumber < questionArrayEasy.length){
-          $question.text(questionArrayEasy[indexNumber]);
-          $updatedURL = dataSetIteration();
-          assignAnswers();
-          indexNumber++;
-          event.preventDefault();
-        }
-      })
-      $('#submitAnswer').on('click', answerSubmit);
-           // for (let i = 0; i < )
     } //medium difficulty////////////////////////////////////////
     else if ($('#mediumButton').text() === 'Selected'){
-      if (indexNumber === 0) {
+      if (indexNumber >= 0 && indexNumber < questionArrayMedium.length) {
+        //assign question 1 of medium array to question.text
+        //display first question.
         $question.text(questionArrayMedium[indexNumber]);
-        console.log($question);
         assignAnswers();
         indexNumber++;
         event.preventDefault();
+        $('#submitAnswer').on('click', answerSubmit);
+      } else {
+        // gameOver();
       }
-      $('#questionButton').on('click', (event) => {
-        if (indexNumber > 0 && indexNumber < questionArrayMedium.length){
-          $question.text(questionArrayMedium[indexNumber]);
-          assignAnswers();
-          indexNumber++
-          event.preventDefault();
-        }
-      })
-      $('#submitAnswer').on('click', answerSubmit);     // for (let i = 0; i < )
     } //hard difficulty //////////////////////////////////////////////////////
     else if ($('#hardButton').text() === 'Selected'){
-      if (indexNumber === 0) {
+      if (indexNumber >= 0 && indexNumber < questionArrayHard.length) {
+        //assign question 1 of hard array to question.text
+        //display first question.
         $question.text(questionArrayHard[indexNumber]);
-        console.log($question);
         assignAnswers();
         indexNumber++;
         event.preventDefault();
+        $('#submitAnswer').on('click', answerSubmit);
+      } else {
+        // gameOver();
       }
-      $('#questionButton').on('click', (event) => {
-        if (indexNumber > 0 && indexNumber < questionArrayHard.length){
-          $question.text(questionArrayHard[indexNumber]);
-          assignAnswers();
-          indexNumber++;
-          event.preventDefault();
-        }
-      })
-      $('#submitAnswer').on('click', answerSubmit);      // for (let i = 0; i < )
     }
   },
   (error) => {
@@ -551,20 +543,3 @@ $('#easyButton').on('click', easyDifficulty);
 $('#mediumButton').on('click', mediumDifficulty);
 $('#hardButton').on('click', hardDifficulty);
 $('#instructions').on('click', instructions);
-/////////////////////////////
-//CODE TO CONSIDER LATER
-////////////////////////////
-
-//BELOW CODE IS FOR SUBMITTING THE ANSWER FORM SECTION. CONSIDER USING.
-/*var form = document.querySelector("form");
-var log = document.querySelector("#log");
-
-form.addEventListener("submit", function(event) {
-  var data = new FormData(form);
-  var output = "";
-  for (const entry of data) {
-    output = entry[0] + "=" + entry[1] + "\r";
-  };
-  log.innerText = output;
-  event.preventDefault();
-}, false);*/
