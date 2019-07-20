@@ -11,18 +11,20 @@
 }
 body {
   font-size: 1em;
-  margin: -1px;
 }
 .header {
   background-image: url("images/darth_vader.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   height: 20em;
+  width: 100%;
   font-family: 'distant_galaxyregular';
   letter-spacing: 5px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  position: fixed;
+  top: 0;
 }
 .header h1 {
   margin: 0;
@@ -35,17 +37,132 @@ body {
   color: #F2DCC2;
   margin-left: 50px;
 }
-.main {
+#modal {
+  background-color: #F2EAE4;
+  font-size: 0.5em;
+  opacity: 0.9;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  /*This puts our modal in front of the body (which has a default z-index of `0`)*/
+  overflow: auto;
+  /*If overflow is clipped, a scroll-bar should be added to see the rest of the content */
+  display: none;
+}
+#modal-textbox {
+  background-color: #DFF2EF;
+  height: 550px;
+  width: 950px;
+  border-radius: 2px;
+  margin: 150px auto;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  /* background-image: url("images/stars.png"); */
+  letter-spacing: 2px;
+}
+#modal-textbox h1 {
+  color: #F28907;
+}
+#modal-textbox h2 {
+  color: #733702;
+}
+#modal-textbox h3 {
+
+}
+#correct {
+  color: #388C35;
+}
+#incorrect {
+  color: #400308;
+}
+#rank {
+  color: #F28907;
+}
+#message {
+  color: #733702;
+}
+#close {
+  color: #400308;
+  text-decoration: none;
+}
+.main {
+  text-align: center;
+  height: 50em;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("images/stars.png");
   color: black;
   font-family: 'distant_galaxyregular';
   font-size: 2em;
 }
+#startGameButton {
+  font-size: 2em;
+  background-color: #F2CA80;
+  color: #0477BF;
+}
+#difficulty button {
+  margin: 25px;
+  width: 200px;
+  font-size: 1em;
+  background-color: whitesmoke;
+  color: #0477BF;
+}
+#questionButton {
+  font-size: 2em;
+  background-color: #DFF2EF;
+  color: #733702;
+}
+#submitAnswer {
+  font-size: 1em;
+}
+#answerText1, #answerText2, #answerText3, #answerText4 {
+  color: yellow;
+  font-size: 0.5em;
+}
+#instructions {
+  margin-top: 2em;
+  font-size: 2em;
+  border-style: none;
+  background-color: rgba(191, 91, 3, 0.5);
+  color: yellow;
+  margin-bottom: 2em;
+}
+input[type=radio] {
+  height: 3em;
+  width: 3em;
+}
+.questionDisplay {
+  font-size: 1.5em;
+}
+#submitAnswer {
+  font-size: 1.25em;
+  background-color: #388C35;
+  color: #F2CA80;
+  margin-bottom: 2.5em;
+}
+.answerArea {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 2em;
+  margin-left: 2em;
+  margin-bottom: 50px;
+}
+form p {
+  font-size: 2em;
+  color: #F2DCC2;
+}
 .footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
   height: 5em;
   background-color: #F2DCC2;
-  margin-bottom: 0;
 }

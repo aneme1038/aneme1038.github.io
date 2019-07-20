@@ -109,104 +109,104 @@ const correctAnswers = ["C", "D", "A", "B", "B", "D", "C", "A", "A", "D", "C", "
 ////////////////////////////////////////
 //DATASET OBJECT CONTAINING ANSWER URLS
 ///////////////////////////////////////
-//any false data value means the answer was not found in dataset or the answer is
+//any "" data value means the answer was not found in dataset or the answer is
 //not a name or contains multiple names
 const datasetAnswers = {
   easy: [
-    "people/44/",
-    "people/11/",
-    "planets/8/",
-    "people/51/",
-    "people/10/",
-    "planets/10/",
-    "people/10/",
-    false,
-    "species/12/",
-    false,
-    "people/27/",
-    "people/25/",
-    "people/11/",
-    "planets/5/",
-    "starships/9/",
-    "planets/7/",
-    "planets/2/",
-    "species/9/",
-    "people/6/",
-    "people/21/",
-    false,
-    "planets/61/",
-    "people/13/",
-    false,
-    "people/5/",
-    false,
-    "people/20/",
-    false,
-    "people/84/",
-    "people/88/"
+    /*1*/"people/44/",
+    /*2*/"people/11/",
+    /*3*/"planets/8/",
+    /*4*/"people/51/",
+    /*5*/"people/10/",
+    /*6*/"planets/10/",
+    /*7*/"people/10/",
+    /*8*/"people/10/",
+    /*9*/"species/12/",
+    /*10*/"people/10/",
+    /*11*/"people/27/",
+    /*12*/"people/25/",
+    /*13*/"people/11/",
+    /*14*/"planets/5/",
+    /*15*/"starships/9/",
+    /*16*/"planets/7/",
+    /*17*/"planets/2/",
+    /*18*/"species/9/",
+    /*19*/"people/6/",
+    /*20*/"people/21/",
+    /*21*/"people/10/",
+    /*22*/"planets/61/",
+    /*23*/"people/13/",
+    /*24*/"people/10/",
+    /*25*/"people/5/",
+    /*26*/"people/10/",
+    /*27*/"people/20/",
+    /*28*/"people/10/",
+    /*29*/"people/84/",
+    /*30*/"people/88/"
   ],
   medium: {
     q1: "people/67/",
     q2: "people/62/",
-    q3: false,
-    q4: false,
+    q3: "",
+    q4: "",
     q5: "people/41/",
     q6: "True",
     q7: "people/14/",
-    q8: false,
+    q8: "",
     q9: "people/11/",
     q10: "people/1/",
-    q11: false,
-    q12: false,
+    q11: "",
+    q12: "",
     q13: "people/15/",
-    q14: false,
-    q15: false,
-    q16: false,
-    q17: false,
-    q18: false,
+    q14: "",
+    q15: "",
+    q16: "",
+    q17: "",
+    q18: "",
     q19: "planets/5/",
-    q20: false,
-    q21: false,
-    q22: false,
-    q23: false,
+    q20: "",
+    q21: "",
+    q22: "",
+    q23: "",
     q24: "people/84/",
     q25: "people/5/",
-    q26: false,
-    q27: false,
-    q28: false,
-    q29: false,
-    q30: false
+    q26: "",
+    q27: "",
+    q28: "",
+    q29: "",
+    q30: ""
   },
   hard: {
-    q1: false,
+    q1: "",
     q2: "vehicles/38/",
-    q3: false,
-    q4: false,
+    q3: "",
+    q4: "",
     q5: "people/33/",
-    q6: false,
-    q7: false,
+    q6: "",
+    q7: "",
     q8: "people/73/",
-    q9: false,
-    q10: false,
-    q11: false,
-    q12: false,
-    q13: false,
+    q9: "",
+    q10: "",
+    q11: "",
+    q12: "",
+    q13: "",
     q14: "vehicles/18/",
     q15: "people/26/",
     q16: "people/45/",
     q17: "people/16/",
-    q18: false,
+    q18: "",
     q19: "people/30",
     q20: "starships/11/",
-    q21: false,
-    q22: false,
-    q23: false,
-    q24: false,
-    q25: false,
-    q26: false, /*can probably find this species*/
-    q27: false,
-    q28: false,
-    q29: false,
-    q30: false
+    q21: "",
+    q22: "",
+    q23: "",
+    q24: "",
+    q25: "",
+    q26: "", /*can probably find this species*/
+    q27: "",
+    q28: "",
+    q29: "",
+    q30: ""
   }
 }
 /////////////////////////////////
@@ -236,11 +236,15 @@ const dataSetIteration = () => {
   let urlAddText;
   if ($('#easyButton').text() === 'Selected'){
     if (dataSetIndexNumber < datasetAnswers.easy.length) {
-      //grab the first key value pair
-      urlAddText = datasetAnswers.easy[dataSetIndexNumber];
-      // console.log(urlAddText);
-      dataSetIndexNumber++;
-      // console.log(dataSetIndexNumber);
+      if(datasetAnswers.easy[dataSetIndexNumber] === ""){
+        dataSetIndexNumber++;
+      } else {
+        //grab the first key value pair
+        urlAddText = datasetAnswers.easy[dataSetIndexNumber];
+        // console.log(urlAddText);
+        dataSetIndexNumber++;
+        // console.log(dataSetIndexNumber);
+      }
     }
   } else {
     dataIndexNumber = 0;
@@ -257,12 +261,11 @@ const answerSubmit = (event) => {
   if ($selectedAnswer === correctAnswers[correctAnswersNumber]) {
     rightAnswersLog.push($selectedAnswer);
     console.log(rightAnswersLog);
-    correctAnswersNumber++;
   } else {
     wrongAnswersLog.push($selectedAnswer);
     console.log(wrongAnswersLog);
-    correctAnswersNumber++;
   }
+  correctAnswersNumber++;
   event.preventDefault();
 }
 //difficulty fuction that will determine if user can start the trivia  by showing the
@@ -271,7 +274,7 @@ const difficulty = () => {
   if ($('#easyButton').text() === 'Selected' || $('#mediumButton').text() === 'Selected' || $('#hardButton').text() === 'Selected') {
     return true;
   } else {
-    return false;
+    return "";
   }
 }
 //display instructions function in a modal (show the modal)
@@ -313,6 +316,33 @@ const hardDifficulty = (event) => {
     $('#hardButton').text('Selected');
   }
 }
+//run the game over function when questions are done
+const gameOver = () => {
+  $('#modal').css('display', 'block');
+  $('#rightAnswers').text(rightAnswersLog.length);
+  $('#wrongAnswers').text(wrongAnswersLog.length);
+  if (rightAnswersLog.length < 5){
+    $('#rank').text("That Guy/Gal Who's Never Watched Star Wars");
+    $('#message').text("Your knowledge of Star Wars is non-existent. You truly need to stop what you are doing now and go watch all star wars films in one sitting.");
+  } else if (rightAnswersLog.length > 5 && rightAnswersLog.length <= 10){
+    $('#rank').text("Star Wars Noob");
+    $('#message').text("You are new to the Star Wars universe. You have a very basic understanding of characters, places, and events.");
+  } else if (rightAnswersLog.length > 10 && rightAnswersLog.length <= 15){
+    $('#rank').text("Jedi Padawan");
+    $('#message').text("You are well on your way to learning the ways of the force. You need more training in wisdom, knowledge, and skill!");
+  } else if (rightAnswersLog.length > 15 && rightAnswersLog.length <= 20){
+    $('#rank').text("Smuggler Con Artist");
+    $('#message').text("You got by on your wits and lucky guesses. You feel mighty important and can con your way past any storm trooper or buy any girl you want a drink");
+  } else if (rightAnswersLog.length > 20 && rightAnswersLog.length <= 29) {
+    $('#rank').text("You are Strong in the Force");
+    $('#message').text("You did really well. You are good at this! But, Master Yoda says 'train more, you must' if you intend to be the master!");
+  } else if (rightAnswersLog.length === 30) {
+    $('#rank').text("Star Wars GrandMaster");
+    $('#message').text("You got every question right! You are the biggest Star Wars nerd there ever was! Now go and get a life you bum!");
+  } else {
+    alert('error');
+  }
+}
 //variable to hold the return value of the dataSetIteration function
 let updatedURL;
 
@@ -327,8 +357,8 @@ $('.runData',).on('click', (event) => {
     type: "GET",
     // dataType: "script",
     // cache: true,
-    // async: true, //NO longer allowed to be false by browser
-    // global: false,
+    // async: true, //NO longer allowed to be "" by browser
+    // global: "",
     // "throws": true
   }).then( (data) => {
     // console.log(data);
@@ -336,97 +366,97 @@ $('.runData',).on('click', (event) => {
       /*Question 1*/["Qui-Gon", "Obi-Wan-Kenobi", /*answer*/data.name, "Vader"],
       /*Question 2*/["Watta", "Luke Skywalker", "Schmi Skywalker", /*answer*/data.name],
       /*Question 3*/[/*answer*/data.name, "Tatooine", "Alderaan", "Coruscant"],
-      /*Question 4*/["Obi-Wan Kenobi", /*answer*/$answer, "Qui-Gon", "Anakin Skywalker"],
-      /*Question 5*/["Qui-Gon", /*answer*/$answer, "Darth Sidious", "Mace Windu"],
-      /*Question 6*/["Kashyyk", "Yavin 4", "Endor", /*answer*/$answer],
-      /*Question 7*/["Mace Windu", "Yoda", /*answer*/$answer, "Anakin Skywalker"],
-      /*Question 8*/[/*answer*/$answer, "The Empire", "The New Republic", "The Separatist Regime"],
-      /*Question 9*/[/*answer*/$answer, "Neimodian", "Noobian", "Mon Calamari"],
-      /*Question 10*/["Six: Red, Green, Purple, Blue,  Yellow, Orange", "Four: 2 Blue, 1 Green, and 1 Yellow", "Four: 1 Blue, 2 Green, 1 Yellow", /*answer*/$answer],
-      /*Question 11*/["Captain Hull", "Lando Calrissian", /*answer*/$answer, "Han Solo"],
-      /*Question 12*/["Owen Lars", "Emperor Palpatine", "Lobot", /*answer*/$answer],
-      /*Question 13*/[/*answer*/$answer, "Obi-Wan-Kenobi", "Qui-Gon", "Yoda"],
-      /*Question 14*/["Yavin 4", /*answer*/$answer, "Alderaan", "Naboo"],
-      /*Question 15*/["The Death Moon", /*answer*/$answer, "The Dark Star", "The Planet Destroyer"],
-      /*Question 16*/["Kashyyk", "Yavin 4", "Alderaan", /*answer*/$answer],
-      /*Question 17*/["Yavin 4", "Coruscant", /*answer*/" ", "Naboo"],
-      /*Question 18*/[/*answer*/$answer, "The Gungan", "The Neimodians", "The Wampas"],
-      /*Question 19*/[/*answer*/$answer, "Ben Lars", "Dax Lars", "Jacob Lars"],
-      /*Question 20*/["Darth Vader", "Count Dooku", "Supreme Leader Snokes", /*answer*/$answer],
-      /*Question 21*/["Anakin and Padme", "Obi-Wan-Kenobi and Satine Kryze", /*answer*/$answer, "Hera Syndulla and Kanan Jarrus"],
-      /*Question 22*/["Tatooine", "Onderon", "Rishi", /*answer*/$answer],
-      /*Question 23*/[/*answer*/$answer, "Finn", "Rey", "Po Dameron"],
-      /*Question 24*/["Darth Sidious", /*answer*/$answer, "Kylo Ren", "General Hux"],
-      /*Question 25*/["Maz Kanata", /*answer*/$answer, "Han Solo", "Admiral Ackbar"],
-      /*Question 26*/["Han Solo and Leia's Split", "The loss of his father, Anakin", "To seek out other Jedi", /*answer*/$answer],
-      /*Question 27*/["Anakin Skywalker", "Obi-Wan Kenobi", /*answer*/$answer, "Emperor Palpatine"],
-      /*Question 28*/[/*answer*/$answer, "Luke Skywalker", "Po Dameron", "Leia Skywalker"],
-      /*Question 29*/[/*answer*/$answer, "Luke Skywalker", "Rey", "Han Solo"],
-      /*Question 30*/["Leuitenant Fazma", "Colonel Dexter", "General Hux", /*answer*/$answer],
+      /*Question 4*/["Obi-Wan Kenobi", /*answer*/data.name, "Qui-Gon", "Anakin Skywalker"],
+      /*Question 5*/["Qui-Gon", /*answer*/data.name, "Darth Sidious", "Mace Windu"],
+      /*Question 6*/["Kashyyk", "Yavin 4", "Endor", /*answer*/data.name],
+      /*Question 7*/["Mace Windu", "Yoda", /*answer*/data.name, "Anakin Skywalker"],
+      /*Question 8*/[/*answer*/"Confederacy of Independent Systems", "The Empire", "The New Republic", "The Separatist Regime"],
+      /*Question 9*/[/*answer*/data.name, "Neimodian", "Noobian", "Mon Calamari"],
+      /*Question 10*/["Six: Red, Green, Purple, Blue,  Yellow, Orange", "Four: 2 Blue, 1 Green, and 1 Yellow", "Four: 1 Blue, 2 Green, 1 Yellow", /*answer*/"Four: 2 Green, 2 Blue"],
+      /*Question 11*/["Captain Hull", "Lando Calrissian", /*answer*/data.name, "Han Solo"],
+      /*Question 12*/["Owen Lars", "Emperor Palpatine", "Lobot", /*answer*/data.name],
+      /*Question 13*/[/*answer*/data.name, "Obi-Wan-Kenobi", "Qui-Gon", "Yoda"],
+      /*Question 14*/["Yavin 4", /*answer*/data.name, "Alderaan", "Naboo"],
+      /*Question 15*/["The Death Moon", /*answer*/data.name, "The Dark Star", "The Planet Destroyer"],
+      /*Question 16*/["Kashyyk", "Yavin 4", "Alderaan", /*answer*/data.name],
+      /*Question 17*/["Yavin 4", "Coruscant", /*answer*/data.name, "Naboo"],
+      /*Question 18*/[/*answer*/data.name, "The Gungan", "The Neimodians", "The Wampas"],
+      /*Question 19*/[/*answer*/data.name, "Ben Lars", "Dax Lars", "Jacob Lars"],
+      /*Question 20*/["Darth Vader", "Count Dooku", "Supreme Leader Snokes", /*answer*/data.name],
+      /*Question 21*/["Anakin and Padme", "Obi-Wan-Kenobi and Satine Kryze", /*answer*/"Han and Leia", "Hera Syndulla and Kanan Jarrus"],
+      /*Question 22*/["Tatooine", "Onderon", "Rishi", /*answer*/data.name],
+      /*Question 23*/[/*answer*/data.name, "Finn", "Rey", "Po Dameron"],
+      /*Question 24*/["Darth Sidious", /*answer*/"Snoke", "Kylo Ren", "General Hux"],
+      /*Question 25*/["Maz Kanata", /*answer*/data.name, "Han Solo", "Admiral Ackbar"],
+      /*Question 26*/["Han Solo and Leia's Split", "The loss of his father, Anakin", "To seek out other Jedi", /*answer*/"Kylo's fall to the Dark Side"],
+      /*Question 27*/["Anakin Skywalker", "Obi-Wan Kenobi", /*answer*/data.name, "Emperor Palpatine"],
+      /*Question 28*/[/*answer*/"Rose Tico", "Luke Skywalker", "Po Dameron", "Leia Skywalker"],
+      /*Question 29*/[/*answer*/data.name, "Luke Skywalker", "Rey", "Han Solo"],
+      /*Question 30*/["Leuitenant Fazma", "Colonel Dexter", "General Hux", /*answer*/data.name],
     ];
     const answerArrayMedium = [
-      /*Question 1*/["Yoda", "Mace Windu", /*answer*/" ", "Nozferatu"],
-      /*Question 2*/["Owen Lars", "Jacob Lars", "Hector Lars", /*answer*/" "],
-      /*Question 3*/[/*answer*/" ", "Darth Plagius", "Darth Sidious", "Darth Revan"],
-      /*Question 4*/["Aurra Sing", /*answer*/" ", "IG-88", "Cad Bane"],
-      /*Question 5*/["Watta", /*answer*/" ", "Zagir", "Peatou"],
-      /*Question 6*/["Do Not Know", "I hate Jar Jar", "False", /*answer*/" "],
-      /*Question 7*/["Leia", "Luke", /*answer*/" ", "Chewbacca"],
-      /*Question 8*/[/*answer*/" ", "56", "6", "96"],
-      /*Question 9*/[/*answer*/" ", "Darth Sidious", "Count Dooku", "Darth Maul"],
-      /*Question 10*/["Leia", "Han", "Boba", /*answer*/" "],
-      /*Question 11*/["7", "20", /*answer*/" ", "10"],
-      /*Question 12*/["Sand People", "Junk Raiders", "Jawas", /*answer*/" "],
-      /*Question 13*/[/*answer*/" ", "Leedo", "Guado", "Jeedo"],
-      /*Question 14*/["Aurra Sing & Cad Bane", /*answer*/" ", "Cradossk & Cato Parsitti", "Embo & Bossk"],
-      /*Question 15*/["600,000", /*answer*/" ", "6,000", "60 million"],
-      /*Question 16*/["Repair Droid", "Utility Droid", "Mechanical Droid", /*answer*/" "],
-      /*Question 17*/["Yarglat Pit", "Rancor Pit", /*answer*/" ", "Nexu Pit"],
-      /*Question 18*/[/*answer*/" ", "Nexu", "Veractyl", "Womps"],
-      /*Question 19*/[/*answer*/" ", "Ice Cave on Hoth", "Carbonite Chamaber on Bespin", "Death Star"],
-      /*Question 20*/["Fett 1", "Slave 2", "Vengeance 3", /*answer*/" "],
-      /*Question 21*/["Finn", "Han Solo", /*answer*/" ", "Chewbacca"],
-      /*Question 22*/["BB-8 attacks Rey", "Scavengers attack and Finn stopped them", "BB-8 runs away from finn to Rey", /*answer*/" "],
-      /*Question 23*/[/*answer*/" ", "Lizaks", "Manaanites", "Kirboars"],
-      /*Question 24*/["Po Dameron", /*answer*/" ", "Rey", "Han Solo"],
-      /*Question 25*/["Luke Skywalker", /*answer*/" ", "Rey", "Kylo Ren"],
-      /*Question 26*/["General Hux", "Captain Phasma", "Leia", /*answer*/" "],
-      /*Question 27*/["Silencer", "TIE Interceptor", /*answer*/" ", "X-Wing"],
-      /*Question 28*/[/*answer*/" ", "Admiral Holdo", "Captain Phasma", "Leia Skywalker"],
-      /*Question 29*/[/*answer*/" ", "Destroyer", "Cruiser", "Capital Ship"],
-      /*Question 30*/["Marge Tico", "Kayla Tico", "Lilly Tico", /*answer*/" "],
+      /*Question 1*/["Yoda", "Mace Windu", /*answer*/data.name, "Nozferatu"],
+      /*Question 2*/["Owen Lars", "Jacob Lars", "Hector Lars", /*answer*/data.name],
+      /*Question 3*/[/*answer*/"Darth Tyranus", "Darth Plagius", "Darth Sidious", "Darth Revan"],
+      /*Question 4*/["Aurra Sing", /*answer*/"Zam Wesell", "IG-88", "Cad Bane"],
+      /*Question 5*/["Watta", /*answer*/data.name, "Zagir", "Peatou"],
+      /*Question 6*/["Do Not Know", "I hate Jar Jar", "False", /*answer*/"True"],
+      /*Question 7*/["Leia Skywalker", "Luke Skywalker", /*answer*/data.name, "Chewbacca"],
+      /*Question 8*/[/*answer*/"66", "56", "6", "96"],
+      /*Question 9*/[/*answer*/data.name, "Darth Sidious", "Count Dooku", "Darth Maul"],
+      /*Question 10*/["Leia", "Han", "Boba", /*answer*/data.name],
+      /*Question 11*/["7", "20", /*answer*/"12", "10"],
+      /*Question 12*/["Sand People", "Junk Raiders", "Jawas", /*answer*/"Tusken Raiders"],
+      /*Question 13*/[/*answer*/data.name, "Leedo", "Guado", "Jeedo"],
+      /*Question 14*/["Aurra Sing & Cad Bane", /*answer*/"IG-88 & Zukuss", "Cradossk & Cato Parsitti", "Embo & Bossk"],
+      /*Question 15*/["600,000", /*answer*/"6 million", "6,000", "60 million"],
+      /*Question 16*/["Repair Droid", "Utility Droid", "Mechanical Droid", /*answer*/"Astromech Droid"],
+      /*Question 17*/["Yarglat Pit", "Rancor Pit", /*answer*/"Sarlacc Pit", "Nexu Pit"],
+      /*Question 18*/[/*answer*/"Wampa", "Nexu", "Veractyl", "Bantha"],
+      /*Question 19*/[/*answer*/data.name, "Hoth", "Bespin", "Death Star"],
+      /*Question 20*/["Fett 1", "Slave 2", "Vengeance 3", /*answer*/"Slave 1"],
+      /*Question 21*/["Finn", "Han Solo", /*answer*/"Maz Kanata", "Chewbacca"],
+      /*Question 22*/["BB-8 attacks Rey", "Scavengers attack and Finn stopped them", "BB-8 runs away from finn to Rey", /*answer*/"Finn is wearing Po's Jacket"],
+      /*Question 23*/[/*answer*/"Rathtars", "Lizaks", "Manaanites", "Kirboars"],
+      /*Question 24*/["Po Dameron", /*answer*/data.name, "Rey", "Han Solo"],
+      /*Question 25*/["Luke Skywalker", /*answer*/data.name, "Rey", "Kylo Ren"],
+      /*Question 26*/["General Hux", "Captain Phasma", "Leia", /*answer*/"Admiral Holdo"],
+      /*Question 27*/["Silencer", "TIE Interceptor", /*answer*/"TIE Fighter", "X-Wing"],
+      /*Question 28*/[/*answer*/"General Hux", "Admiral Holdo", "Captain Phasma", "Leia Skywalker"],
+      /*Question 29*/[/*answer*/"Dreadnaught", "Destroyer", "Cruiser", "Capital Ship"],
+      /*Question 30*/["Marge Tico", "Kayla Tico", "Lilly Tico", /*answer*/"Paige Tico"],
     ];
     const answerArrayHard = [
-      /*Question 1*/["Mon Motha", "Lux Bonteri", /*answer*/" ", "Mas amedda"],
-      /*Question 2*/["Zenga", "Mengi", "Doomba", /*answer*/" "],
-      /*Question 3*/[/*answer*/" ", "10,000", "50,000", "8,000"],
-      /*Question 4*/["Thorn", /*answer*/" ", "Thire", "Neyo"],
-      /*Question 5*/["Ruk Gunray", /*answer*/" ", "Key Gunray", "Jor Gunray"],
-      /*Question 6*/["Java Juice", "Bantha Milk", "Death Sticks", /*answer*/" "],
-      /*Question 7*/["Ralltiir Tiger", "Cathar", /*answer*/" ", "Vorn Tiger"],
-      /*Question 8*/[/*answer*/" ", "Sifo-Dyas", "Kolac Pru", "Lama Su"],
-      /*Question 9*/[/*answer*/" ", "Tika", "Bentu", "Jenga"],
-      /*Question 10*/["Left Leg", "Right Leg", "Right Arm", /*answer*/" "],
-      /*Question 11*/["Red Four", "Red Five", /*answer*/" ", "Red Three"],
-      /*Question 12*/["Bentu", "Rodian", "Ithorian", /*answer*/" "],
-      /*Question 13*/[/*answer*/" ", "Sand Devil", "Womp Rat", "Rancor"],
-      /*Question 14*/["All Traversal Terrain Transport", /*answer*/" ", "Auxiliary Terrain Traversal Transport", "All Terrain Troop Transport"],
-      /*Question 15*/["Jidu", /*answer*/" ", "Greedo", "Simba"],
-      /*Question 16*/["Oatiw'ramu", "Nor'pidaq", "Fib'bortoma", /*answer*/" "],
-      /*Question 17*/["Jabba Skotosh Narra", "Jabba Jildosh Whogresk", /*answer*/" ", "Jabba Brappoosh Broerg"],
-      /*Question 18*/[/*answer*/" ", "Desert Winds", "Gungan March", "Mos Espa"],
-      /*Question 19*/[/*answer*/" ", "Teebo", "Chirpa", "Logray"],
-      /*Question 20*/["A-Wing", "C-Wing", "T-Wing", /*answer*/" "],
-      /*Question 21*/["Duke", "Wicket", /*answer*/" ", "Chip"],
-      /*Question 22*/["Tatooine", "Jakku", "Rishi", /*answer*/" "],
-      /*Question 23*/[/*answer*/" ", "Dud Bolt", "Sio Bibble", "Po Dameron"],
-      /*Question 24*/["Captain Loatha Sommover", /*answer*/" ", "Captain Sweitt Concorkill", "Captain Ello Asty"],
-      /*Question 25*/["Stunner", /*answer*/" ", "Interceptor", "Stealther"],
-      /*Question 26*/["Dianoga", "Sando", "Pug", /*answer*/" "],
-      /*Question 27*/["Don't Jive", "Don't Jinx", /*answer*/" ", "Don't Jam"],
-      /*Question 28*/[/*answer*/" ", "The Imperial Guards", "The Supreme Guards", "The Elite Guards"],
-      /*Question 29*/[/*answer*/" ", "Tarkin", "Utapaun", "Rose"],
-      /*Question 30*/["Almec", "Lux Bonteri", "Tobias Beckett", /*answer*/" "],
+      /*Question 1*/["Mon Motha", "Lux Bonteri", /*answer*/"Valorum", "Mas amedda"],
+      /*Question 2*/["Zenga", "Mengi", "Doomba", /*answer*/data.name],
+      /*Question 3*/[/*answer*/"20,000", "10,000", "50,000", "8,000"],
+      /*Question 4*/["Thorn", /*answer*/"Panaka", "Thire", "Neyo"],
+      /*Question 5*/["Ruk Gunray", /*answer*/data.name, "Key Gunray", "Jor Gunray"],
+      /*Question 6*/["Java Juice", "Bantha Milk", "Death Sticks", /*answer*/"Jawa Juice"],
+      /*Question 7*/["Ralltiir Tiger", "Cathar", /*answer*/"Nexu", "Vorn Tiger"],
+      /*Question 8*/[/*answer*/data.name, "Sifo-Dyas", "Kolac Pru", "Lama Su"],
+      /*Question 9*/[/*answer*/"Boga", "Tika", "Bentu", "Jenga"],
+      /*Question 10*/["Left Leg", "Right Leg", "Left Arm", /*answer*/"Right Arm"],
+      /*Question 11*/["Red Four", "Red Five", /*answer*/"Red Two", "Red Three"],
+      /*Question 12*/["Bentu", "Rodian", "Ithorian", /*answer*/"Bith"],
+      /*Question 13*/[/*answer*/"Krayt Dragon", "Sand Devil", "Womp Rat", "Rancor"],
+      /*Question 14*/["All Traversal Terrain Transport", /*answer*/data.name, "Auxiliary Terrain Traversal Transport", "All Terrain Troop Transport"],
+      /*Question 15*/["Jidu", /*answer*/data.name, "Greedo", "Simba"],
+      /*Question 16*/["Oatiw'ramu", "Nor'pidaq", "Fib'bortoma", /*answer*/data.name],
+      /*Question 17*/["Jabba Skotosh Narra", "Jabba Jildosh Whogresk", /*answer*/data.name, "Jabba Brappoosh Broerg"],
+      /*Question 18*/[/*answer*/"Jedi Rocks", "Desert Winds", "Gungan March", "Mos Espa"],
+      /*Question 19*/[/*answer*/data.name, "Teebo", "Chirpa", "Logray"],
+      /*Question 20*/["A-Wing", "C-Wing", "T-Wing", /*answer*/data.name],
+      /*Question 21*/["Duke", "Wicket", /*answer*/"Slip", "Chip"],
+      /*Question 22*/["Tatooine", "Jakku", "Rishi", /*answer*/"Nantoon"],
+      /*Question 23*/[/*answer*/"Lor San Tekka", "Dud Bolt", "Sio Bibble", "Po Dameron"],
+      /*Question 24*/["Captain Loatha Sommover", /*answer*/"Captain Canady", "Captain Sweitt Concorkill", "Captain Ello Asty"],
+      /*Question 25*/["Stunner", /*answer*/"Silencer", "Interceptor", "Stealther"],
+      /*Question 26*/["Dianoga", "Sando", "Pug", /*answer*/"Thala-siren"],
+      /*Question 27*/["Don't Jive", "Don't Jinx", /*answer*/"Don't Join", "Don't Jam"],
+      /*Question 28*/[/*answer*/"The Praetorian Guards", "The Imperial Guards", "The Supreme Guards", "The Elite Guards"],
+      /*Question 29*/[/*answer*/"Lintra", "Tarkin", "Utapaun", "Rose"],
+      /*Question 30*/["Almec", "Lux Bonteri", "Tobias Beckett", /*answer*/"Temiri Blagg"],
     ];
     //answer variables for radio buttons
     let $easyAnswerA = answerArrayEasy[answerNumber][0];
@@ -490,7 +520,7 @@ $('.runData',).on('click', (event) => {
     }
     //create the question variable to be displayed to be used different difficulty button listeners
     let $question = $('<div>').appendTo($('.questionDisplay'));
-    $question.addClass('.questionText');
+    $question.addClass('.questionText').css('color', 'yellow');
     //easy difficulty/////////////////////////////////////////////
     if ($('#easyButton').text() === 'Selected'){
       if (indexNumber >= 0 && indexNumber < questionArrayEasy.length) {
@@ -500,10 +530,10 @@ $('.runData',).on('click', (event) => {
         assignAnswers();
         indexNumber++;
         event.preventDefault();
-        $('#submitAnswer').on('click', answerSubmit);
       } else {
-        // gameOver();
+        gameOver();
       }
+      // $('#submitAnswer').on('click', answerSubmit);
     } //medium difficulty////////////////////////////////////////
     else if ($('#mediumButton').text() === 'Selected'){
       if (indexNumber >= 0 && indexNumber < questionArrayMedium.length) {
@@ -513,10 +543,11 @@ $('.runData',).on('click', (event) => {
         assignAnswers();
         indexNumber++;
         event.preventDefault();
-        $('#submitAnswer').on('click', answerSubmit);
+
       } else {
-        // gameOver();
+        gameOver();
       }
+      // $('#submitAnswer').on('click', answerSubmit);
     } //hard difficulty //////////////////////////////////////////////////////
     else if ($('#hardButton').text() === 'Selected'){
       if (indexNumber >= 0 && indexNumber < questionArrayHard.length) {
@@ -526,10 +557,11 @@ $('.runData',).on('click', (event) => {
         assignAnswers();
         indexNumber++;
         event.preventDefault();
-        $('#submitAnswer').on('click', answerSubmit);
+
       } else {
-        // gameOver();
+        gameOver();
       }
+      // $('#submitAnswer').on('click', answerSubmit);
     }
   },
   (error) => {
@@ -539,6 +571,7 @@ $('.runData',).on('click', (event) => {
 //////////////////////////
 //EVENT LISTENERS
 /////////////////////////
+$('#submitAnswer').on('click', answerSubmit);
 $('#easyButton').on('click', easyDifficulty);
 $('#mediumButton').on('click', mediumDifficulty);
 $('#hardButton').on('click', hardDifficulty);
