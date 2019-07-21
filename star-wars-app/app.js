@@ -142,72 +142,75 @@ const datasetAnswers = {
     /*27*/"people/20/",
     /*28*/"people/10/",
     /*29*/"people/84/",
-    /*30*/"people/88/"
+    /*30*/"people/88/",
+          "people/88/"
   ],
-  medium: {
-    q1: "people/67/",
-    q2: "people/62/",
-    q3: "",
-    q4: "",
-    q5: "people/41/",
-    q6: "True",
-    q7: "people/14/",
-    q8: "",
-    q9: "people/11/",
-    q10: "people/1/",
-    q11: "",
-    q12: "",
-    q13: "people/15/",
-    q14: "",
-    q15: "",
-    q16: "",
-    q17: "",
-    q18: "",
-    q19: "planets/5/",
-    q20: "",
-    q21: "",
-    q22: "",
-    q23: "",
-    q24: "people/84/",
-    q25: "people/5/",
-    q26: "",
-    q27: "",
-    q28: "",
-    q29: "",
-    q30: ""
-  },
-  hard: {
-    q1: "",
-    q2: "vehicles/38/",
-    q3: "",
-    q4: "",
-    q5: "people/33/",
-    q6: "",
-    q7: "",
-    q8: "people/73/",
-    q9: "",
-    q10: "",
-    q11: "",
-    q12: "",
-    q13: "",
-    q14: "vehicles/18/",
-    q15: "people/26/",
-    q16: "people/45/",
-    q17: "people/16/",
-    q18: "",
-    q19: "people/30",
-    q20: "starships/11/",
-    q21: "",
-    q22: "",
-    q23: "",
-    q24: "",
-    q25: "",
-    q26: "", /*can probably find this species*/
-    q27: "",
-    q28: "",
-    q29: "",
-    q30: ""
-  }
+  medium: [
+    "people/67/",
+    "people/62/",
+    "people/62/",
+    "people/62/",
+    "people/41/",
+    "people/62/",
+    "people/14/",
+    "people/62/",
+    "people/11/",
+    "people/1/",
+    "people/62/",
+    "people/62/",
+    "people/15/",
+    "people/62/",
+    "people/62/",
+    "people/62/",
+    "people/62/",
+    "people/62/",
+    "planets/5/",
+    "people/62/",
+    "people/62/",
+    "people/62/",
+    "people/62/",
+    "people/84/",
+    "people/5/",
+    "people/62/",
+    "people/62/",
+    "people/62/",
+    "people/62/",
+    "people/62/",
+    "people/62/"
+  ],
+  hard: [
+    "vehicles/38/",
+    "vehicles/38/",
+    "vehicles/38/",
+    "vehicles/38/",
+    "people/33/",
+    "vehicles/38/",
+    "vehicles/38/",
+    "people/73/",
+    "vehicles/38/",
+    "vehicles/38/",
+    "vehicles/38/",
+    "vehicles/38/",
+    "vehicles/38/",
+    "vehicles/18/",
+    "people/26/",
+    "people/45/",
+    "people/16/",
+    "vehicles/38/",
+    "people/30",
+    "starships/11/",
+    "vehicles/38/",
+    "vehicles/38/",
+    "vehicles/38/",
+    "vehicles/38/",
+    "vehicles/38/",
+    "vehicles/38/", /*can probably find this species*/
+    "vehicles/38/",
+    "vehicles/38/",
+    "vehicles/38/",
+    "vehicles/38/",
+    "vehicles/38/"
+  ]
 }
 /////////////////////////////////
 //GLOBAL VARIABLES BESIDES ARRAYS
@@ -245,9 +248,33 @@ const dataSetIteration = () => {
         dataSetIndexNumber++;
         // console.log(dataSetIndexNumber);
       }
+    } else {
+      dataSetIndexNumber = 0;
+    }
+  } else if ($('#mediumButton').text() === 'Selected'){
+    if (dataSetIndexNumber < datasetAnswers.medium.length) {
+      if (datasetAnswers.medium[dataSetIndexNumber] === "") {
+        dataSetIndexNumber++;
+      } else {
+        urlAddText = datasetAnswers.medium[dataSetIndexNumber];
+        dataSetIndexNumber++;
+      }
+    } else {
+      dataSetIndexNumber = 0;
+    }
+  } else if ($('#hardButton').text() === 'Selected'){
+    if (dataSetIndexNumber < datasetAnswers.hard.length) {
+      if (datasetAnswers.hard[dataSetIndexNumber] === "") {
+        dataSetIndexNumber++;
+      } else {
+        urlAddText = datasetAnswers.hard[dataSetIndexNumber];
+        dataSetIndexNumber++;
+      }
+    } else {
+      dataSetIndexNumber = 0;
     }
   } else {
-    dataIndexNumber = 0;
+    dataSetIndexNumber = 0;
   }
   return urlAddText;
 }
@@ -267,15 +294,6 @@ const answerSubmit = (event) => {
   }
   correctAnswersNumber++;
   event.preventDefault();
-}
-//difficulty fuction that will determine if user can start the trivia  by showing the
-//question button
-const difficulty = () => {
-  if ($('#easyButton').text() === 'Selected' || $('#mediumButton').text() === 'Selected' || $('#hardButton').text() === 'Selected') {
-    return true;
-  } else {
-    return "";
-  }
 }
 //display instructions function in a modal (show the modal)
 const instructions = (event) => {
@@ -458,21 +476,22 @@ $('.runData',).on('click', (event) => {
       /*Question 29*/[/*answer*/"Lintra", "Tarkin", "Utapaun", "Rose"],
       /*Question 30*/["Almec", "Lux Bonteri", "Tobias Beckett", /*answer*/"Temiri Blagg"],
     ];
-    //answer variables for radio buttons
-    let $easyAnswerA = answerArrayEasy[answerNumber][0];
-    let $easyAnswerB = answerArrayEasy[answerNumber][1];
-    let $easyAnswerC = answerArrayEasy[answerNumber][2];
-    let $easyAnswerD = answerArrayEasy[answerNumber][3];
-    let $mediumAnswerA = answerArrayMedium[answerNumber][0];
-    let $mediumAnswerB = answerArrayMedium[answerNumber][1];
-    let $mediumAnswerC = answerArrayMedium[answerNumber][2];
-    let $mediumAnswerD = answerArrayMedium[answerNumber][3];
-    let $hardAnswerA = answerArrayHard[answerNumber][0];
-    let $hardAnswerB = answerArrayHard[answerNumber][1];
-    let $hardAnswerC = answerArrayHard[answerNumber][2];
-    let $hardAnswerD = answerArrayHard[answerNumber][3];
+
     //this function when called will assign the answers to the radio button labels for each question
     const assignAnswers = () => {
+      //answer variables for radio buttons
+      let $easyAnswerA = answerArrayEasy[answerNumber][0];
+      let $easyAnswerB = answerArrayEasy[answerNumber][1];
+      let $easyAnswerC = answerArrayEasy[answerNumber][2];
+      let $easyAnswerD = answerArrayEasy[answerNumber][3];
+      let $mediumAnswerA = answerArrayMedium[answerNumber][0];
+      let $mediumAnswerB = answerArrayMedium[answerNumber][1];
+      let $mediumAnswerC = answerArrayMedium[answerNumber][2];
+      let $mediumAnswerD = answerArrayMedium[answerNumber][3];
+      let $hardAnswerA = answerArrayHard[answerNumber][0];
+      let $hardAnswerB = answerArrayHard[answerNumber][1];
+      let $hardAnswerC = answerArrayHard[answerNumber][2];
+      let $hardAnswerD = answerArrayHard[answerNumber][3];
       //variable to hold index of answer arrays
       //variables to hold answers for the radio buttons
       if (answerNumber < answerArrayEasy.length || answerNumber < answerArrayMedium.length || answerNumber < answerArrayHard.length){
@@ -530,7 +549,8 @@ $('.runData',).on('click', (event) => {
         assignAnswers();
         indexNumber++;
         event.preventDefault();
-      } else {
+      } else if (indexNumber === questionArrayEasy.length) {
+        //call this function when user has answered 30 questions
         gameOver();
       }
       // $('#submitAnswer').on('click', answerSubmit);
@@ -544,7 +564,7 @@ $('.runData',).on('click', (event) => {
         indexNumber++;
         event.preventDefault();
 
-      } else {
+      } else if (indexNumber === questionArrayMedium.length){
         gameOver();
       }
       // $('#submitAnswer').on('click', answerSubmit);
@@ -558,7 +578,7 @@ $('.runData',).on('click', (event) => {
         indexNumber++;
         event.preventDefault();
 
-      } else {
+      } else if (indexNumber === questionArrayHard.length){
         gameOver();
       }
       // $('#submitAnswer').on('click', answerSubmit);

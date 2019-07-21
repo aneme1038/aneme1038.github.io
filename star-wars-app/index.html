@@ -7,76 +7,78 @@
     <link href="styles.css" rel="stylesheet">
   </head>
   <body>
-    <!--HEADER SECTION-->
-    <div class="header">
-      <h1>STAR WARS TRIVIA</h1>
-      <h3>Ready to test your knowledge?</h3>
-    </div>
-    <!--MAIN SECTION-->
-    <div class="main">
-      <div id="modal">
-        <div id="modal-textbox">
-          <h1>Game Over</h1>
-          <h2>Here are your results</h2>
-          <div id="answerCount">
-            <h4 id="correct">Correct Answers:</h4>
-            <p id="rightAnswers"></p>
-            <h4 id="incorrect">Wrong Answers:</h4>
-            <p id="wrongAnswers"></p>
+    <div class="container">
+      <!--HEADER SECTION-->
+      <div class="header">
+        <h1>STAR WARS TRIVIA</h1>
+        <h3>Ready to test your knowledge?</h3>
+      </div>
+      <!--MAIN SECTION-->
+      <div class="main">
+        <div id="modal">
+          <div id="modal-textbox">
+            <h1>Game Over</h1>
+            <h2>Here are your results</h2>
+            <div id="answerCount">
+              <h4 id="correct">Correct Answers:</h4>
+              <p id="rightAnswers"></p>
+              <h4 id="incorrect">Wrong Answers:</h4>
+              <p id="wrongAnswers"></p>
+            </div>
+            <h3>You earn the title of...</h3>
+            <h1 id="rank"></h1>
+              <p id="message"></p>
+            <a href="#" id="close">Close</a>
           </div>
-          <h3>You earn the title of...</h3>
-          <h1 id="rank"></h1>
-            <p id="message"></p>
-          <a href="#" id="close">Close</a>
+        </div>
+        <div class="triviaArea">
+          <button id="instructions">Instructions</button>
+          <div id="scoreBoard">
+          </div>
+          <!--question button will be hidden until a difficulty button is clicked-->
+          <button id="startGameButton" class="runData">Start Game</button>
+          <div id="difficulty">
+            <button id="easyButton">EASY</button>
+            <button id="mediumButton">MEDIUM</button>
+            <button id="hardButton">HARD</button>
+            <p id="difficultyText"></p>
+          </div>
+          <button id="questionButton" class="runData">Next Question</button>
+
+          <div class="questionDisplay">
+            <dl>
+              <dd id="question"></dd>
+            </dl>
+          </div>
+          <form><!--id="answerForm" onsubmit='answerSubmit();'-->
+            <p>Select your answer below</p>
+            <div class="answerArea">
+              <div class ="answerA">
+                <input type="radio" id="answer1" name="answerChoice" value="A">
+                <label for="answer1" id="answerText1"></label>
+              </div>
+              <div class="answerB">
+                <input type="radio" id="answer2" name="answerChoice" value="B">
+                <label for="answer2" id="answerText2"></label>
+              </div>
+              <div class="answerC">
+                <input type="radio" id="answer3" name="answerChoice" value="C">
+                <label for="answer3" id="answerText3"></label>
+              </div>
+              <div class="answerD">
+                <input type="radio" id="answer4" name="answerChoice" value="D">
+                <label for="answer4" id="answerText4"></label>
+              </div>
+            </div>
+            <input type="submit" id="submitAnswer" value="Lock In Answer">
+          </form>
+
         </div>
       </div>
-      <div class="triviaArea">
-        <button id="instructions">Instructions</button>
-        <div id="scoreBoard">
-        </div>
-        <!--question button will be hidden until a difficulty button is clicked-->
-        <button id="startGameButton" class="runData">Start Game</button>
-        <div id="difficulty">
-          <button id="easyButton">EASY</button>
-          <button id="mediumButton">MEDIUM</button>
-          <button id="hardButton">HARD</button>
-          <p id="difficultyText"></p>
-        </div>
-        <button id="questionButton" class="runData">Next Question</button>
-
-        <div class="questionDisplay">
-          <dl>
-            <dd id="question"></dd>
-          </dl>
-        </div>
-        <form><!--id="answerForm" onsubmit='answerSubmit();'-->
-          <p>Select your answer below</p>
-          <div class="answerArea">
-            <div class ="answerA">
-              <input type="radio" id="answer1" name="answerChoice" value="A">
-              <label for="answer1" id="answerText1"></label>
-            </div>
-            <div class="answerB">
-              <input type="radio" id="answer2" name="answerChoice" value="B">
-              <label for="answer2" id="answerText2"></label>
-            </div>
-            <div class="answerC">
-              <input type="radio" id="answer3" name="answerChoice" value="C">
-              <label for="answer3" id="answerText3"></label>
-            </div>
-            <div class="answerD">
-              <input type="radio" id="answer4" name="answerChoice" value="D">
-              <label for="answer4" id="answerText4"></label>
-            </div>
-          </div>
-          <input type="submit" id="submitAnswer" value="Lock In Answer">
-        </form>
-
+      <!--FOOTER SECTION-->
+      <div class="footer">
+        <!--social media links-->
       </div>
-    </div>
-    <!--FOOTER SECTION-->
-    <div class="footer">
-      <!--social media links-->
     </div>
     <!-- SCRIPT REFERENCES -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
