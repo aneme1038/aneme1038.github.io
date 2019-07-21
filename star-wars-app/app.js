@@ -298,12 +298,13 @@ const answerSubmit = (event) => {
   correctAnswersNumber++;
   event.preventDefault();
 }
-//function that closes the gameOver Modal 
+//function that closes the gameOver Modal
 const closeModal = (event) => {
   $('#modal').css('display', 'none');
 }
 //display instructions function in a modal (show the modal)
 const openInstructions = (event) => {
+  $('#instructionsModal').css('display', 'block');
 }
 //this function changes the text of the easy button to 'selected'.
 //If it is already selected, change it back to EASY.
@@ -593,7 +594,7 @@ $('#easyButton').on('click', easyDifficulty);
 $('#mediumButton').on('click', mediumDifficulty);
 $('#hardButton').on('click', hardDifficulty);
 $('#instructions').on('click', instructions);
-$('#close').on('click', closeModal);
+$('.close').on('click', closeModal);
 let counterNum = 1;
 $('.runData').on('click', () => {
     $('#questionCounter').empty();
@@ -601,3 +602,4 @@ $('.runData').on('click', () => {
     const $total = $('<h3>').text("Total Questions: 30").addClass('counter').appendTo($('#questionCounter'));
     counterNum++;
 });
+$('#instructions').on('click', openInstructions)
