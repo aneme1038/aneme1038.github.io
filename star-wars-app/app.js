@@ -301,9 +301,11 @@ const answerSubmit = (event) => {
 //function that closes the gameOver Modal
 const closeModal = (event) => {
   $('#modal').css('display', 'none');
+  $('#instructionsModal').css('display', 'none');
 }
 //display instructions function in a modal (show the modal)
 const openInstructions = (event) => {
+  console.log($('#instructionsModal'));
   $('#instructionsModal').css('display', 'block');
 }
 //this function changes the text of the easy button to 'selected'.
@@ -539,7 +541,7 @@ $('.runData').on('click', (event) => {
     }
     //create the question variable to be displayed to be used different difficulty button listeners
     let $question = $('<div>').appendTo($('.questionDisplay'));
-    $question.addClass('.questionText').css('color', 'yellow');
+    $question.addClass('questionText').css('color', 'yellow');
     //easy difficulty/////////////////////////////////////////////
     if ($('#easyButton').text() === 'Selected'){
       if (indexNumber >= 0 && indexNumber < questionArrayEasy.length) {
@@ -593,7 +595,6 @@ $('#submitAnswer').on('click', answerSubmit);
 $('#easyButton').on('click', easyDifficulty);
 $('#mediumButton').on('click', mediumDifficulty);
 $('#hardButton').on('click', hardDifficulty);
-$('#instructions').on('click', instructions);
 $('.close').on('click', closeModal);
 let counterNum = 1;
 $('.runData').on('click', () => {
