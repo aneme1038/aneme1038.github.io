@@ -6,8 +6,6 @@
 // -including answers, taken from:
 // - https://hubpages.com/entertainment/Best-Star-Wars-Questions-and-Answers
 /////////////////////////////////////////////////////////////////////////////
-//variable to hold any answer no matter what answer. Variable is a STRING
-let $answer;
 //Array containing every question for the Easy Difficulty
 const questionArrayEasy = [
   "In Episode 1, which Sith uses a double-bladed red lightsaber?",
@@ -283,7 +281,7 @@ const dataSetIteration = () => {
   }
   return urlAddText;
 }
-
+//a function that submits the selected answer and store the value of the radio button in a corresponding array based on whether it is correct.
 const answerSubmit = (event) => {
   event.preventDefault();
   $('.questionDisplay').empty();
@@ -300,13 +298,12 @@ const answerSubmit = (event) => {
   correctAnswersNumber++;
   event.preventDefault();
 }
-
-const closeModal = () => {
-
+//function that closes the gameOver Modal 
+const closeModal = (event) => {
+  $('#modal').css('display', 'none');
 }
 //display instructions function in a modal (show the modal)
 const openInstructions = (event) => {
-
 }
 //this function changes the text of the easy button to 'selected'.
 //If it is already selected, change it back to EASY.
@@ -372,21 +369,15 @@ const gameOver = () => {
 }
 //variable to hold the return value of the dataSetIteration function
 let updatedURL;
-
 ////////////////////////////////
 //AJAX SETUP AND TRIVIA LINKING
 ///////////////////////////////
-$('.runData',).on('click', (event) => {
+$('.runData').on('click', (event) => {
   updatedURL = dataSetIteration();
   console.log(updatedURL);
   $.ajax({
     url: "https://swapi.co/api/" + updatedURL,
     type: "GET",
-    // dataType: "script",
-    // cache: true,
-    // async: true, //NO longer allowed to be "" by browser
-    // global: "",
-    // "throws": true
   }).then( (data) => {
     // console.log(data);
     const answerArrayEasy = [
@@ -485,7 +476,6 @@ $('.runData',).on('click', (event) => {
       /*Question 29*/[/*answer*/"Lintra", "Tarkin", "Utapaun", "Rose"],
       /*Question 30*/["Almec", "Lux Bonteri", "Tobias Beckett", /*answer*/"Temiri Blagg"],
     ];
-
     //this function when called will assign the answers to the radio button labels for each question
     const assignAnswers = () => {
       //answer variables for radio buttons
@@ -562,7 +552,6 @@ $('.runData',).on('click', (event) => {
         //call this function when user has answered 30 questions
         gameOver();
       }
-      // $('#submitAnswer').on('click', answerSubmit);
     } //medium difficulty////////////////////////////////////////
     else if ($('#mediumButton').text() === 'Selected'){
       if (indexNumber >= 0 && indexNumber < questionArrayMedium.length) {
@@ -576,7 +565,6 @@ $('.runData',).on('click', (event) => {
       } else if (indexNumber === questionArrayMedium.length){
         gameOver();
       }
-      // $('#submitAnswer').on('click', answerSubmit);
     } //hard difficulty //////////////////////////////////////////////////////
     else if ($('#hardButton').text() === 'Selected'){
       if (indexNumber >= 0 && indexNumber < questionArrayHard.length) {
@@ -590,7 +578,6 @@ $('.runData',).on('click', (event) => {
       } else if (indexNumber === questionArrayHard.length){
         gameOver();
       }
-      // $('#submitAnswer').on('click', answerSubmit);
     }
   },
   (error) => {
@@ -606,6 +593,7 @@ $('#easyButton').on('click', easyDifficulty);
 $('#mediumButton').on('click', mediumDifficulty);
 $('#hardButton').on('click', hardDifficulty);
 $('#instructions').on('click', instructions);
+$('#close').on('click', closeModal);
 let counterNum = 1;
 $('.runData').on('click', () => {
     $('#questionCounter').empty();

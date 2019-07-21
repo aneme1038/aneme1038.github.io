@@ -32,14 +32,15 @@ body {
 }
 .header h1 {
   margin: 0;
-  font-size: 2.5em;
+  font-size: 2.75em;
   color: yellow;
-  margin-left: 50px;
+  margin-left: 25px;
   margin-top: 50px;
 }
 .header h3 {
   color: #F2DCC2;
-  margin-left: 50px;
+  font-size: 2em;
+  margin-left: 25px;
 }
 #modal {
   background-color: #F2EAE4;
@@ -130,7 +131,6 @@ body {
 #instructions {
   margin-top: 2em;
   font-size: 2em;
-  border-style: none;
   background-color: rgba(191, 91, 3, 0.5);
   color: yellow;
   margin-bottom: 1em;
@@ -171,9 +171,10 @@ form p {
   font-size: 1.5em;
   color: #DFF2EF;
 }
-/* @media screen and (min-width: 600px){
+@media (min-width: 600px){
   .header {
     height: 40em;
+    position: relative;
   }
   .header h1 {
     font-size: 10em;
@@ -212,4 +213,7 @@ form p {
   .triviaArea {
     height: 100%;
   }
-} */
+  .footer {
+    position: relative;
+  }
+}
