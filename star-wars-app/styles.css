@@ -133,7 +133,7 @@ body {
   border-style: none;
   background-color: rgba(191, 91, 3, 0.5);
   color: yellow;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 }
 input[type=radio] {
   height: 4em;
@@ -166,6 +166,10 @@ form p {
   bottom: 0;
   height: 5em;
   background-color: #F2DCC2;
+}
+.counter {
+  font-size: 1.5em;
+  color: #DFF2EF;
 }
 /* @media screen and (min-width: 600px){
   .header {

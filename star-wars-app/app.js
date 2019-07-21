@@ -1,4 +1,5 @@
-
+//NOTE TO READER - THIS CODE DEPENDS ON OBJECT AND ARRAY ORDER. CHANGING THE
+//ORDER OF ANY ARRAY/OBJECT/FUNCTION/ETC. WILL BREAK THE CODE.
 /////////////////////////////////////////////////////////////////////////////
 //STAR WARS QUESTION AND ANSWER SECTION
 // - All Star Wars questions (and their difficulty)
@@ -7,6 +8,7 @@
 /////////////////////////////////////////////////////////////////////////////
 //variable to hold any answer no matter what answer. Variable is a STRING
 let $answer;
+//Array containing every question for the Easy Difficulty
 const questionArrayEasy = [
   "In Episode 1, which Sith uses a double-bladed red lightsaber?",
   "Who built C-3PO?",
@@ -39,6 +41,7 @@ const questionArrayEasy = [
   "Who first engages Kylo Ren in a lightsaber duel outside Starkiller Base?",
   "Which female First Order officer wears a metallic suit?"
 ];
+//Array containing every question for the Medium Difficulty
 const questionArrayMedium = [
   "Who was Qui-Gon Jinn's former Jedi Master?",
   "Which Tatooine moisture farmer does Shmi Skywalker marry?",
@@ -71,6 +74,7 @@ const questionArrayMedium = [
   "Ignoring Leia's order to retreat, Poe directs his team to attack what type of First Order starship?",
   "Who is Rose Tico's sister?"
 ];
+//Array containing every question for the Hard Difficulty
 const questionArrayHard = [
   "Before Palpatine, who is the Supreme Chancellor of the Republic Senate?",
   "What is the name of the transport Qui-Gon, Obi-Wan, and Jar-Jar use to navigate Naboo's planet core?",
@@ -103,8 +107,10 @@ const questionArrayHard = [
   "Female pilot Captain _____ serves as the Resistance's Blue Leader.",
   "What is the name of the stable boy who helps Rose and Finn ride the Fathiers?"
 ]
+//Two arrays that will eventually contain the answers selected by the user.
 const rightAnswersLog = [];
 const wrongAnswersLog = [];
+//an array containing the radio button values that are the CORRECT answer for questions. Array Order is important
 const correctAnswers = ["C", "D", "A", "B", "B", "D", "C", "A", "A", "D", "C", "D", "A", "B", "B", "D", "C", "A", "A", "D", "D", "D", "A", "B", "B", "D", "C", "A", "A", "D"];
 ////////////////////////////////////////
 //DATASET OBJECT CONTAINING ANSWER URLS
@@ -215,7 +221,6 @@ const datasetAnswers = {
 /////////////////////////////////
 //GLOBAL VARIABLES BESIDES ARRAYS
 ////////////////////////////////
-
 //variable to hold a indexNumber that will increment through every question and answer
 //when the user clicks the next question button, the indexNumber increments
 let indexNumber = 0;
@@ -295,8 +300,12 @@ const answerSubmit = (event) => {
   correctAnswersNumber++;
   event.preventDefault();
 }
+
+const closeModal = () => {
+
+}
 //display instructions function in a modal (show the modal)
-const instructions = (event) => {
+const openInstructions = (event) => {
 
 }
 //this function changes the text of the easy button to 'selected'.
@@ -591,8 +600,16 @@ $('.runData',).on('click', (event) => {
 //////////////////////////
 //EVENT LISTENERS
 /////////////////////////
+
 $('#submitAnswer').on('click', answerSubmit);
 $('#easyButton').on('click', easyDifficulty);
 $('#mediumButton').on('click', mediumDifficulty);
 $('#hardButton').on('click', hardDifficulty);
 $('#instructions').on('click', instructions);
+let counterNum = 1;
+$('.runData').on('click', () => {
+    $('#questionCounter').empty();
+    const $count = $('<h3>').text("Question " + counterNum).addClass('counter').appendTo($('#questionCounter'));
+    const $total = $('<h3>').text("Total Questions: 30").addClass('counter').appendTo($('#questionCounter'));
+    counterNum++;
+});
