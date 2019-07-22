@@ -214,7 +214,10 @@ form p {
   color: #DFF2EF;
 }
 dt {
-  display: none;
+  /* display: none; */
+}
+#randomAnswer {
+  margin: 0;
 }
 /*--------FOOTER------*/
 .footer {
