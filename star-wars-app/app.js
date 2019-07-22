@@ -612,6 +612,7 @@ $("#playNowButton").click(function() {
 });
 //////////////////////////////////////////////////////
 //secondary AJAX Setup and random question generator
+//this api is from https://opentdb.com/. The api generates a list of questions to use and the associated answers and incorrect answers. For the purpose of this application, I will only use the question and the correct answer.
 //////////////////////////////////////////////////////
 setInterval(() => {
   $.ajax({
