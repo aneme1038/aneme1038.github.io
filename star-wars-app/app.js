@@ -627,4 +627,4 @@ setInterval(() => {
     $('#randomQuestion').css('color', 'orange').html(object);
     $('#randomAnswer').css('color', 'yellow').html(answer);
   })
-}, 8000);
+}, 10000);

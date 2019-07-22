@@ -209,12 +209,16 @@ form p {
 .randomQuestionArea {
   display: flex;
   flex-direction: column;
-  height: 5em;
+  height: 12em;
   width: 100%;
   color: #DFF2EF;
+  font-size: 0.5em;
 }
 dt {
   /* display: none; */
+}
+#randomQuestion {
+  margin: 0;
 }
 #randomAnswer {
   margin: 0;
@@ -290,7 +294,7 @@ dt {
     width: 1.5em;
   }
   #submitAnswer {
-    font-size: 1.5em;
+    font-size: 1.25em;
   }
   .triviaArea {
     height: 100%;
@@ -299,6 +303,9 @@ dt {
     position: fixed;
     bottom: 0;
   }
+}
+.randomQuestionArea {
+  font-size: 1em;
 }
 /*----Sizes beyond 1000 px width----*/
 @media (min-width: 1000px){
@@ -341,5 +348,8 @@ dt {
   }
   .footer img {
     margin: 10px 25px;
+  }
+  .randomQuestionArea {
+    font-size: 1.5em;
   }
 }
