@@ -590,7 +590,6 @@ $('.runData').on('click', (event) => {
 //////////////////////////
 //EVENT LISTENERS
 /////////////////////////
-
 $('#submitAnswer').on('click', answerSubmit);
 $('#easyButton').on('click', easyDifficulty);
 $('#mediumButton').on('click', mediumDifficulty);
@@ -603,4 +602,23 @@ $('.runData').on('click', () => {
     const $total = $('<h3>').text("Total Questions: 30").addClass('counter').appendTo($('#questionCounter'));
     counterNum++;
 });
-$('#instructions').on('click', openInstructions)
+$('#instructions').on('click', openInstructions);
+//This event listener and solution found at https://stackoverflow.com/questions/18071046/smooth-scroll-to-specific-div-on-click/18071231
+//This will create an event listener that on the click of the playNow Button I created will in the body of the html (Jquery, find me the body of the html) and animate the body of that html through scrolling to a specific position on the page, in this case the triviaArea div container. The slow is how fast the scroll happens. 
+$("#playNowButton").click(function() {
+    $('html,body').animate({
+        scrollTop: $(".triviaArea").offset().top},
+        'slow');
+});
+//////////////////////////////////////////////////////
+//secondary AJAX Setup and random question generator
+//////////////////////////////////////////////////////
+// $.ajax({
+//   url: "https://opentdb.com/api.php?amount=1&category=11",
+//   type: "GET",
+//   random: true
+// }).then( setInterval((data) => {
+//   console.log("Retrieved " + data);
+//   $('#randomQuestion').html(data);
+//   console.log($('#randomQuestion'));
+// }, 2000));

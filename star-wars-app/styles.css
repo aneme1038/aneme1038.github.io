@@ -34,6 +34,9 @@ body {
   top: 0;
   z-index: 1;
 }
+#playNowButton {
+  display: none;
+}
 .header h1 {
   margin: 0;
   font-size: 1em;
@@ -203,20 +206,41 @@ form p {
   font-size: 0.6em;
   color: #DFF2EF;
 }
+.randomQuestionArea {
+  display: flex;
+  flex-direction: column;
+  height: 5em;
+  width: 100%;
+  color: #DFF2EF;
+}
+dt {
+  display: none;
+}
 /*--------FOOTER------*/
 .footer {
   position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   bottom: 0;
   height: 2.5em;
   background-color: #F2DCC2;
 }
-/*-----Sizes beyond mobile size------*/
+.footer img {
+  margin: 0 5px;
+  height: 1.5em;
+  width: 1.5em;
+}
+/*-----Sizes beyond mobile size up to 1000px------*/
 @media (min-width: 600px){
   .header {
     width: 100%;
     height: 20em;
     position: relative;
+  }
+  #playNowButton {
+    display: none;
   }
   .header h1 {
     font-size: 3em;
@@ -271,5 +295,48 @@ form p {
   .footer {
     position: fixed;
     bottom: 0;
+  }
+}
+/*----Sizes beyond 1000 px width----*/
+@media (min-width: 1000px){
+  body {
+    display: flex;
+    flex-direction: column;
+    background-image: url("images/stars.png");
+  }
+  .header {
+    width: 200%;
+    height: 50em;
+    align-items: flex-start;
+  }
+  .header h1 {
+    font-size: 4em;
+    margin-left: 5em;
+  }
+  .header h3 {
+    margin-left: 10em;
+  }
+  #playNowButton {
+    display: block;
+    font-size: 2em;
+    margin-left: 10em;
+    margin-bottom: 6em;
+    background-color: rgba(0, 0, 0, 0);
+    border-style: none;
+    color: #F2CA80;
+  }
+  .main {
+    margin-top: 9em;
+    margin-left: 9em;
+    align-items: center;
+    justify-content: center;
+  }
+  .footer {
+    display: flex;
+    justify-content: center;
+    font-size: 1em;
+  }
+  .footer img {
+    margin: 10px 25px;
   }
 }
