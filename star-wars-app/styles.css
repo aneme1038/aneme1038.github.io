@@ -209,10 +209,10 @@ form p {
 .randomQuestionArea {
   display: flex;
   flex-direction: column;
-  height: 12em;
+  height: 10em;
   width: 100%;
   color: #DFF2EF;
-  font-size: 0.5em;
+  font-size: 18px;
 }
 dt {
   /* display: none; */
@@ -303,9 +303,9 @@ dt {
     position: fixed;
     bottom: 0;
   }
-}
-.randomQuestionArea {
-  font-size: 1em;
+  .randomQuestionArea {
+    font-size: 1em;
+  }
 }
 /*----Sizes beyond 1000 px width----*/
 @media (min-width: 1000px){
