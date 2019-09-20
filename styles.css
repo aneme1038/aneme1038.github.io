@@ -1,4 +1,33 @@
 body {
-  background: rgb(255,255,255);
-  background: linear-gradient(340deg, rgba(255,255,255,1) 0%, rgba(179,142,103,1) 33%, rgba(96,14,14,1) 72%);
+  overflow: auto;
+  margin: -1px;
+}
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 10px double black;
+  backgroiund-color: whitesmoke;
+}
+.main {
+  display: flex;
+}
+ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+.listItem {
+  list-style: none;
+  height: 300px;
+  width: 300px;
+  margin: 20px;
+}
+.listItem img {
+  height: 150px;
+  width: 300px;
+}
+.projectbox {
+  height: 300px;
+  width: 300px;
 }
