@@ -1,0 +1,10 @@
+.header {
+  text-align: center;
+}
+.line {
+  border: 2.5px solid black;
+  width: 80%;
+}
+.main {
+  text-align: justify;
+}
