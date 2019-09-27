@@ -41,6 +41,17 @@ body {
   text-align: center;
   background-color: whitesmoke;
 }
+article {
+  text-align: justify;
+  margin: 30px;
+}
+.home {
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: cornflowerblue;
+  font-family: 'IBM Plex Mono', monospace;
+}
 #bnrHead {
   font-family: 'Lateef', cursive;
   font-size: 1.1em;
