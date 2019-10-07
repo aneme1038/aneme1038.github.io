@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="../styles.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="header">
+      <h1>Aaron Neme</h1>
+      <nav>
+        <div id="abtLnk">
+          <a href="./about.html">About</a>
+        </div>
+        <div id="prtflLnk">
+          <a href="./resume.html">Resume</a>
+        </div>
+        <div id="cntctLnk">
+          <a href="mailto:aaron.neme@outlook.com">Contact</a>
+        </div>
+        <div id="hireLnk">
+          <a href="#">Hire Me</a>
+        </div>
+      </nav>
+    </div>
+    <div class="main">
+      <div class="form">
+        <form class="formDisplay" action="http://aneme1038.github.io/admin/requests" method="post">
+          <input type="text" name="name" placeholder="First and Last Name"/>
+          <input type="text" name="company" placeholder="Company"/>
+          <input type="email" name="email" placeholder="Email Address" />
+          <select name="service" class="dropdown">
+            <option value="portfolio">Portfolio</option>
+            <option value="website">Website</option>
+            <option value="application">Web Application</option>
+            <option value="mobile">Mobile Application</option>
+            <option value="blog">Blog</option>
+            <option value="ecommerce">E-Commerce Page</option>
+            <option value="frontend">Web/Application Design</option>
+            <option value="backend">Database Integration</option>
+            <option value="api">API Integration</option>
+          </select>
+          <input type="text" name="description" placeholder="Description of Project"/>
+          <input type="text" name="timeLimit" placeholder="When do you need it by? (MM/DD/YYYY)" />
+          <input type="text" name="message" id="textarea" placeholder="Anything else I need to know?" />
+          <input type="submit" class="submitBtn"/>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

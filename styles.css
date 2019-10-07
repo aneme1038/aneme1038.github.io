@@ -161,6 +161,23 @@ ul {
   width: 25px;
   height: 25px;
 }
+form {
+  display: flex;
+  flex-direction: column;
+  margin: 50px 100px;
+}
+.form {
+  background-color: #404040;
+}
+.formDisplay > input {
+  font-size: 0.95em;
+  margin: 20px 0;
+  max-width: 350px;
+}
+.dropdown {
+  max-width: 350px;
+  font-size: 1.1em;
+}
 @media (min-width: 700px) {
   #bnrHead {
     font-size: 1.2em;

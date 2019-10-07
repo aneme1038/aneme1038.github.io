@@ -7,6 +7,7 @@ const formSchema = Schema({
   email: String,
   service: String,
   description: String,
+  timeLimit: String,
   message: String
 })
 
