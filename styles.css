@@ -167,6 +167,8 @@ form {
   margin: 50px 100px;
 }
 .form {
+  display: flex;
+  justify-content: center;
   background-color: #404040;
 }
 .formDisplay > input {
