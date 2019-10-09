@@ -1,7 +1,7 @@
 const express = require('express');
 const sessions = express.Router();
 const User = require('../models/users.js');
-const Form = require('../modells/forms.js');
+const Form = require('../models/forms.js');
 const bcrypt = require('bcrypt');
 
 //------------
