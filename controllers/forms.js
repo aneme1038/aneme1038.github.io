@@ -12,7 +12,7 @@ forms.get('/requests', (req, res) => {
 })
 forms.post('/requests', (req, res) => {
   Form.create(req.body, (error, createdRequest) => {
-    res.redirect('/');
+    res.redirect('https://aaron-neme.com/');
   })
 })
 forms.delete('/requests/:id', (req, res) => {
