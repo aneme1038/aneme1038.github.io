@@ -109,7 +109,7 @@ const questionArrayHard = [
 const rightAnswersLog = [];
 const wrongAnswersLog = [];
 //an array containing the radio button values that are the CORRECT answer for questions. Array Order is important
-const correctAnswers = ["C", "D", "A", "B", "B", "D", "C", "A", "A", "D", "C", "D", "A", "B", "B", "D", "C", "A", "A", "D", "D", "D", "A", "B", "B", "D", "C", "A", "A", "D"];
+const correctAnswers = ["C", "D", "A", "B", "B", "D", "C", "A", D", "C", "A", "A", "D", "D", "D", "A", "B", "B", "D", "C", "A", "A", "D"];
 ////////////////////////////////////////
 //DATASET OBJECT CONTAINING ANSWER URLS
 ///////////////////////////////////////
@@ -231,7 +231,7 @@ let correctAnswersNumber = 0;
 let $selectedAnswer;
 let dataSetIndexNumber = 0;
 /////////////////////////
-//EVENT HANDLERS
+//EVENT HANDLERS // FUNCTIONS
 ////////////////////////
 // console.log(datasetAnswers.easy.length);
 const dataSetIteration = () => {
@@ -345,11 +345,11 @@ const hardDifficulty = (event) => {
 }
 //run the game over function when questions are done
 const gameOver = () => {
-  $('#modal').css('display', 'block');
-  $('#rightAnswers').text(rightAnswersLog.length);
-  $('#wrongAnswers').text(wrongAnswersLog.length);
-  if (rightAnswersLog.length < 5){
-    $('#rank').text("That Guy/Gal Who's Never Watched Star Wars");
+  $('#modal').css('display', 'block'); //make the modal window visible to the user
+  $('#rightAnswers').text(rightAnswersLog.length); //Display the number of right answers to the user
+  $('#wrongAnswers').text(wrongAnswersLog.length); //display the number of wrong answers to the user
+  if (rightAnswersLog.length <= 5){
+    $('#rank').text("That Guy/Gal Who's Never Watched Star Wars"); //The user gets this title
     $('#message').text("Your knowledge of Star Wars is non-existent. You truly need to stop what you are doing now and go watch all star wars films in one sitting.");
   } else if (rightAnswersLog.length > 5 && rightAnswersLog.length <= 10){
     $('#rank').text("Star Wars Noob");

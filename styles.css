@@ -35,6 +35,13 @@ body {
   font-family: 'IBM Plex Mono', monospace;
   color: cornflowerblue;
 }
+#homeLnk {
+  text-decoration: none;
+  color: black;
+}
+.projectBoxLnk {
+  text-decoration: none;
+}
 .main {
   display: flex;
   flex-direction: column;
@@ -91,12 +98,14 @@ article {
 .projectStats p > a {
   text-decoration: none;
   color: lightblue;
+  font-family: 'IBM Plex Mono', monospace;
 }
 .projectStats p {
   margin-top: 25px;
   margin-left: 25px;
   font-size: 1.1em;
   color: whitesmoke;
+  font-family: 'IBM Plex Mono', monospace;
 }
 .statsCont {
   display: flex;
@@ -131,9 +140,6 @@ ul {
   width: 300px;
   border: 1px solid gray;
   background-color: darkgray;
-}
-.projectBox a {
-  text-decoration: none;
   color: #404040;
 }
 .wrkCont {
