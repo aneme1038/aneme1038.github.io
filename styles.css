@@ -65,7 +65,7 @@ article {
   width: 50px;
 }
 #item5 > img {
-  width: 50px;
+  width: 60px;
 }
 #bnrHead {
   background-image: url('https://cdn.pixabay.com/photo/2017/06/21/07/33/background-2426328_960_720.jpg');
@@ -85,6 +85,12 @@ article {
   font-family: sans-serif;
   font-size: 1em;
   color: whitesmoke;
+}
+.notice {
+  font-family: 'IBM Plex Mono', monospace;
+  border: 2px solid red;
+  width: 80%;
+  margin: 0 auto;
 }
 .secondCont {
   display: flex;
