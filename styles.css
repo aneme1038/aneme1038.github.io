@@ -92,13 +92,13 @@ article {
   padding: 20px;
 }
 .project-slider {
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 .project-slider .project-wrapper {
   width: 84%;
   height: 550px;
   margin: 0px auto;
-  border: 1px dashed red;
+  /* border: 1px dashed red; */
   overflow: hidden;
 }
 .project-slider .project-wrapper .project {
