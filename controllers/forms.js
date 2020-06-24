@@ -20,3 +20,5 @@ forms.delete('/requests/:id', (req, res) => {
     res.redirect('/requests');
   })
 })
+
+module.exports = forms;
