@@ -605,7 +605,7 @@ $('.runData').on('click', () => {
 $('#instructions').on('click', openInstructions);
 //This event listener and solution found at https://stackoverflow.com/questions/18071046/smooth-scroll-to-specific-div-on-click/18071231
 //This will create an event listener that on the click of the playNow Button I created will in the body of the html (Jquery, find me the body of the html) and animate the body of that html through scrolling to a specific position on the page, in this case the triviaArea div container. The slow is how fast the scroll happens.
-$("#playNowButton").click(function() {
+$("#playNowButton").click(() {
     $('html,body').animate({
         scrollTop: $(".triviaArea").offset().top},
         'slow');
