@@ -109,7 +109,7 @@ const questionArrayHard = [
 const rightAnswersLog = [];
 const wrongAnswersLog = [];
 //an array containing the radio button values that are the CORRECT answer for questions. Array Order is important
-const correctAnswers = ["C", "D", "A", "B", "B", "D", "C", "A", D", "C", "A", "A", "D", "D", "D", "A", "B", "B", "D", "C", "A", "A", "D"];
+const correctAnswers = ["C", "D", "A", "B", "B", "D", "C", "A", "D", "C", "A", "A", "D", "D", "D", "A", "B", "B", "D", "C", "A", "A", "D"];
 ////////////////////////////////////////
 //DATASET OBJECT CONTAINING ANSWER URLS
 ///////////////////////////////////////
@@ -605,10 +605,8 @@ $('.runData').on('click', () => {
 $('#instructions').on('click', openInstructions);
 //This event listener and solution found at https://stackoverflow.com/questions/18071046/smooth-scroll-to-specific-div-on-click/18071231
 //This will create an event listener that on the click of the playNow Button I created will in the body of the html (Jquery, find me the body of the html) and animate the body of that html through scrolling to a specific position on the page, in this case the triviaArea div container. The slow is how fast the scroll happens.
-$("#playNowButton").click(() {
-    $('html,body').animate({
-        scrollTop: $(".triviaArea").offset().top},
-        'slow');
+$("#playNowButton").click(function() {
+  $('html, body').animate({scrollTop: $(".triviaArea").offset().top}, 1000);
 });
 //////////////////////////////////////////////////////
 //secondary AJAX Setup and random question generator
@@ -621,9 +619,9 @@ setInterval(() => {
     random: true
   }).then( (data) => {
     let object = data.results[0].question;
-    console.log(object);
+    //console.log(object);
     let answer = data.results[0].correct_answer;
-    console.log(answer);
+    //console.log(answer);
     $('#randomQuestion').css('color', 'orange').html(object);
     $('#randomAnswer').css('color', 'yellow').html(answer);
   })
