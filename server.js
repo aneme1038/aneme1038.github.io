@@ -9,7 +9,7 @@ require('dotenv').config();
 //-------
 //Port
 //-------
-
+const PORT = process.env.PORT || 3000;
 //---------
 //Database
 //---------
@@ -18,6 +18,7 @@ const MONGODB_URI =process.env.MONGODB_URI;
 //fix deprecation warnings for mongoose
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
+mongoose.set('useUnifiedTopology', true);
 
 //Connect to Mongo
 mongoose.connect(MONGODB_URI, {useNewUrlParser: true});
@@ -53,7 +54,7 @@ const formsController = require('./controllers/forms.js');
 app.use('/forms', formsController);
 const sessionsController = require('./controllers/sessions.js');
 app.use('/sessions', sessionsController);
-const usersController = require('./controlllers/users.js');
+const usersController = require('./controllers/users.js');
 app.use('/users', usersController);
 
 //Listener
