@@ -2,6 +2,7 @@
   "name": "aneme1038",
   "version": "1.0.0",
   "description": "",
+  "author": "Aaron Neme",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,18 +11,35 @@
     "type": "git",
     "url": "git+https://github.com/aneme1038/aneme1038.github.io.git"
   },
-  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/aneme1038/aneme1038.github.io/issues"
   },
   "homepage": "https://github.com/aneme1038/aneme1038.github.io#readme",
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^2.2.0",
+    "autoprefixer": "^9.8.0",
+    "browser-sync": "^2.26.7",
+    "cssnano": "^4.1.10",
+    "del": "^5.1.0",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-nunjucks-render": "^2.2.3",
+    "gulp-postcss": "^8.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-uglify": "^3.0.2"
+  },
   "dependencies": {
     "bcrypt": "^5.0.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "method-override": "^3.0.0",
-    "mongoose": "^5.10.5"
+    "mongoose": "^5.10.5",
+    "bootstrap": "^4.5.0",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1",
+    "zoom-vanilla.js": "^2.0.6"
   }
 }
