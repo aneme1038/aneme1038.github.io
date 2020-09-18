@@ -1,0 +1,20 @@
+#frontend-grab {
+    width: 35%;
+}
+main {
+    background-color: rgb(68,61,61);
+}
+#call-to-action {
+    background: rgb(0,0,0);
+    margin: 0 auto;
+    color: whitesmoke;
+    background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(57,36,36,1) 100%);
+}
+#header-box {
+    background: rgb(0,0,0);
+    background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(57,36,36,1) 100%);
+}
+#contact-btn {
+    border-color: whitesmoke;
+    color:  rgb(211, 200, 200);
+}
