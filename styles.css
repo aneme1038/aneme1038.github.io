@@ -1,6 +1,4 @@
-#frontend-grab {
-    width: 35%;
-}
+
 main {
     background-color: rgb(68,61,61);
 }
@@ -17,4 +15,10 @@ main {
 #contact-btn {
     border-color: whitesmoke;
     color:  rgb(211, 200, 200);
+}
+#frontend-grab, #custom-grab {
+    float: right;
+}
+#backend-grab {
+    float: left;
 }
