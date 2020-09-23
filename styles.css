@@ -23,6 +23,12 @@ main {
 #backend-grab {
     float: left;
 }
+#text-container {
+    width: 100%;
+}
+#abt-aside {
+    background-image: url("../assets/img/int-blue-circuit.jpg");
+}
 /*ViewPorts or Screensizes beyond Mobile*/
 @media (min-width: 325px){
     #backend-grab {
