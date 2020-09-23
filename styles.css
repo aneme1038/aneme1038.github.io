@@ -24,8 +24,9 @@ main {
     float: left;
 }
 #text-container {
-    width: 100%;
+
 }
+
 #abt-aside {
     background-image: url("../assets/img/int-blue-circuit.jpg");
 }
