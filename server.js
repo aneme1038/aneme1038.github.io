@@ -47,6 +47,13 @@ app.use(session({
   saveUninitialized: false
 }))
 
+//========
+//Routes
+//========
+app.get('/', (req, res) => {
+  res.render('index.html');
+})
+
 //---------
 //Controllers
 //---------
