@@ -35,11 +35,10 @@ main {
 }
 @media (min-width: 1450px){
     .container {
-        max-width: 1300px;
+        max-width: 100%;
     }
-}
-@media (min-width: 1600px){
-    .container {
-        max-width: 1500px;
+    footer {
+        padding-left: 100px;
+        padding-right: 100px;
     }
 }
