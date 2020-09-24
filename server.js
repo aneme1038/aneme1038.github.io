@@ -54,6 +54,18 @@ app.use(express.static(__dirname + '/assets/'));
 app.get('/', (req, res) => {
   res.render('index.ejs');
 })
+app.get('/about', (req, res) => {
+  res.render('nav/about.ejs');
+})
+app.get('/pnf-msg-01', (req, res) => {
+  res.render('nav/comingSoon.ejs');
+})
+app.get('/testimonials', (req, res) => {
+  res.render('nav/testimonials.ejs');
+})
+app.get('/contact', (req, res) => {
+  res.render('nav/contact.ejs');
+})
 
 //---------
 //Controllers
@@ -64,11 +76,6 @@ const sessionsController = require('./controllers/sessions.js');
 app.use('/sessions', sessionsController);
 const usersController = require('./controllers/users.js');
 app.use('/users', usersController);
-const navController = require('./controllers/mainRouter.js');
-app.use('/nav/about', navController);
-app.use('/nav/pnf-msg-01', navController);
-app.use('/nav/testimonials', navController);
-app.use('/nav/contact', navController);
 
 //Listener
 app.listen(PORT, () => {

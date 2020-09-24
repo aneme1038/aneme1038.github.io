@@ -24,7 +24,7 @@ main {
     float: left;
 }
 #abt-aside {
-    background-image: url("assets/img/int-blue-circuit.jpg");
+    background-image: url("../img/int-blue-circuit.jpg");
     color: rgb(233, 231, 231);
 }
 /*ViewPorts or Screensizes beyond Mobile*/
