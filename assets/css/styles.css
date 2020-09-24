@@ -1,7 +1,7 @@
 
 main {
     /*background-color: #242121;*/
-    background-color: #40241E;
+    background-color: #1f120f;
 }
 #call-to-action {
     background: rgb(0,0,0);
@@ -41,4 +41,8 @@ main {
         padding-left: 100px;
         padding-right: 100px;
     }
+    #backend-section, #frontend-section, #custom-section {
+        margin: 0 18em 0 18em;
+    }
+    
 }
