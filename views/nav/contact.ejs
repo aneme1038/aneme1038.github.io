@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>About - Aaron Neme</title>
+    <title>Contact - Aaron Neme</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -13,8 +13,8 @@
       rel="stylesheet">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../assets/css/theme.css">
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/styles.css">
     <!-- Favicon -->
     <link rel="icon" href="../assets/img/icon.png" type="image/png">
 
@@ -37,7 +37,7 @@
                 <div class="collapse navbar-collapse text-uppercase" id="navbarContent">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a href="about.html" class="nav-link">About</a>
+                            <a href="about.html.html" class="nav-link">About</a>
                         </li>
                         <li class="nav-item">
                             <a href="comingSoon.html" class="nav-link">Testimonials</a>
@@ -52,39 +52,44 @@
     </header>
 
     <main id="content">
+
         <div class="container py-6">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <h1 class="display-4 mb-4">About Me</h1>
+                    <h1 class="display-4 mb-4">Contact us</h1>
                     <hr class="border-1 border-light my-4 ml-0 text-left w-15" role="presentation">
-                    <p class="lead text-secondary"></p>
+                    <p class="lead text-secondary">Ask us anything, or share your feedback.</p>
                 </div>
             </div>
         </div>
-        <div class="bg-white text-black"> 
-            <div class="container py-4 row" id="row-container">
-                <div class="container py-4 col-sm-4">
-                    <img src="../assets/img/aaronpiano.jpg" class="img-fluid mt-3 mb-2" alt="Man sitting in front of a piano with glasses smiling at camera">
-                </div>
-                <div class="container bg-white col-lg-5" id="text-container">    
-                    <p>I'm a Full-stack Web Developer with a plethora of skills and knowledge in many different programming languages and frameworks. <br />I have an analytical mind and am adaptable to client requirements to deliver high-quality web applications and sites. <br />Me and those on my team will work to deliver beautiful products within reasonable deadlines.</p>
-                    <br />
-                    <p>Faith and family are a big part of my life and is what influences me in what I do and how I treat those I work with. <br />It guides me through difficulties and challenging situations.</p>
-                    <br />
-                    <p>The skills I have learned and the intelligence I have gained in my personal and professional development <br />are all in an effort to give back - creating websites and web frameworks that will help benefit those in need.</p>
-                    <br />
-                    <p>Review my skills and projects and if you like what you see, take advantage of my services. I look forward to applying my knowledge and skills to your project.</p>
-                </div>
-                <div class="container py=3 col-md-3" id="abt-aside">
-                    <h3><strong>Technical Skills</strong></h3>
-                    <h5>Front-End:</h5>
-                    <p><em>HTML5, CSS3, Javascript, jQuery, Node.js, Angular.js, Angular 9, React, React Native, Vue.js, Bootstrap, SCSS</em></p>
-                    <br />
-                    <h5>Back-End:</h5>
-                    <p><em>SQL, PostgreSQL, MySQL, MongoDB, Django with Python, REST API, Ruby on Rails, AJAX</em></p>
-                    <br />
-                    <h5>Miscellaneous Technologies:</h5>
-                    <p><em>PHP, Typescript, C#, C++, Wordpress, Git Version Control, MVC Architecture, AWS, Heroku Deployment</em></p>
+
+        <div class="bg-white text-black">
+            <div class="container py-2">
+                <div class="bg-white mt-n6 px-3 px-lg-0">
+                    <div class="row justify-content-center py-4 py-lg-5">
+                        <div class="col-md-10 col-lg-8">
+                            <p>Fields marked with an <span class="text-primary">*</span> are required.</p>
+                            <form class="py-4">
+                                <div class="form-group">
+                                    <label for="inputName">Name <span class="text-primary">*</span></label>
+                                    <input type="text" class="form-control" id="inputName" placeholder="Enter your name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail">Email <span class="text-primary">*</span></label>
+                                    <input type="email" class="form-control" id="inputEmail" placeholder="Enter your email address" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="messageTetxarea">Message <span class="text-primary">*</span></label>
+                                    <textarea class="form-control" id="messageTetxarea" rows="9" placeholder="Enter your message" required></textarea>
+                                </div>
+                                <div class="form-group form-check">
+                                    <input type="checkbox" class="form-check-input" id="inputCheck">
+                                    <label class="form-check-label small" for="inputCheck">I agree with the <a href="#">terms and conditions</a> </label>
+                                </div>
+                                <button type="submit" class="btn btn-pill btn-primary">Submit</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

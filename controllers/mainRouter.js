@@ -4,17 +4,17 @@ const nav = express.Router();
 //============
 //Routes
 //============
-nav.get('/nav/about', (req, res) => {
-    res.render('../nav/about.html');
+nav.get('/about', (req, res) => {
+    res.render('nav/about.ejs');
 })
-nav.get('/nav/pnf-msg-01', (req, res) => {
-    res.render('../nav/comingSoon.html');
+nav.get('/pnf-msg-01', (req, res) => {
+    res.render('nav/comingSoon.ejs');
 })
-nav.get('/nav/testimonials', (req, res) => {
-    res.render('../nav/testimonials.html');
+nav.get('/testimonials', (req, res) => {
+    res.render('nav/testimonials.ejs');
 })
-nav.get('/nav/contact', (req, res) => {
-    res.render('../nav/contact.html');
+nav.get('/contact', (req, res) => {
+    res.render('nav/contact.ejs');
 })
 
 module.exports = nav; 

@@ -46,12 +46,13 @@ app.use(session({
   resave: false,
   saveUninitialized: false
 }))
+app.use(express.static(__dirname + '/assets/'));
 
 //========
 //Routes
 //========
 app.get('/', (req, res) => {
-  res.render('index.html');
+  res.render('index.ejs');
 })
 
 //---------
