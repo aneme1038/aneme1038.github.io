@@ -57,10 +57,10 @@ app.use('/sessions', sessionsController);
 const usersController = require('./controllers/users.js');
 app.use('/users', usersController);
 const navController = require('./controllers/mainRouter.js');
-app.use('/about', navController);
-app.use('/pnf-msg-01', navController);
-app.use('/testimonials', navController);
-app.use('/contact', navController);
+app.use('/nav/about', navController);
+app.use('/nav/pnf-msg-01', navController);
+app.use('/nav/testimonials', navController);
+app.use('/nav/contact', navController);
 
 //Listener
 app.listen(PORT, () => {
