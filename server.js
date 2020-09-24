@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 3000;
 //---------
 //Database
 //---------
-const MONGODB_URI =process.env.MONGODB_URI;
+const MONGODB_URI = process.env.MONGODB_URI;
 
 //fix deprecation warnings for mongoose
 mongoose.set('useFindAndModify', false);
