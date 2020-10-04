@@ -27,10 +27,27 @@ main {
     background-image: url("../img/int-blue-circuit.jpg");
     color: rgb(233, 231, 231);
 }
+
 /*ViewPorts or Screensizes beyond Mobile*/
 @media (min-width: 325px){
     #backend-grab {
         float: right;
+    }
+    /*Terms of Service Page*/
+    #terms-container{
+        width: 100%;
+        font-size: 15px;
+        text-align: center;
+    }
+}
+@media (min-width: 990px){
+    #terms-container {
+        display: flex;
+        width: 75%;
+        font-size: 15px;
+        text-align: justify;
+        
+        margin: 0 auto;
     }
 }
 @media (min-width: 1450px){
