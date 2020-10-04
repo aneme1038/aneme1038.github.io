@@ -618,10 +618,11 @@ setInterval(() => {
     type: "GET",
     random: true
   }).then( (data) => {
+    console.log(data)
     let object = data.results[0].question;
-    //console.log(object);
+    console.log(object);
     let answer = data.results[0].correct_answer;
-    //console.log(answer);
+    console.log(answer);
     $('#randomQuestion').css('color', 'orange').html(object);
     $('#randomAnswer').css('color', 'yellow').html(answer);
   })
