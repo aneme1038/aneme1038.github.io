@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const session = require('express-session');
 const db = mongoose.connection;
+var $ = require('jquery');
 require('dotenv').config();
 
 //-------
@@ -69,6 +70,11 @@ app.get('/contact', (req, res) => {
 app.get('/tos', (req, res) => {
   res.render('nav/termsOfService.ejs');
 })
+app.post('/', (req, res) => {
+  //send an email here but currently dummy email
+  console.log('Data:', req.body);
+  res.json({message: 'Message received!'})
+})
 
 //---------
 //Controllers
@@ -79,6 +85,7 @@ const sessionsController = require('./controllers/sessions.js');
 app.use('/sessions', sessionsController);
 const usersController = require('./controllers/users.js');
 app.use('/users', usersController);
+
 
 //Listener
 app.listen(PORT, () => {
