@@ -66,6 +66,9 @@ app.get('/testimonials', (req, res) => {
 app.get('/contact', (req, res) => {
   res.render('nav/contact.ejs');
 })
+app.get('/tos', (req, res) => {
+  res.render('nav/termsOfService.ejs');
+})
 
 //---------
 //Controllers
