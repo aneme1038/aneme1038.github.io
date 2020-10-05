@@ -45,7 +45,7 @@
                             <a href="/pnf-msg-01" class="nav-link">Testimonials</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/pnf-msg-01" class="nav-link">Contact</a>
+                            <a href="/contact" class="nav-link">Contact</a>
                         </li>
                     </ul>
                 </div>
@@ -60,7 +60,8 @@
                 <div class="col-lg-8">
                     <h1 class="display-4 mb-4">Contact us</h1>
                     <hr class="border-1 border-light my-4 ml-0 text-left w-15" role="presentation">
-                    <p class="lead text-secondary">Ask us anything, or share your feedback.</p>
+                    <p class="lead text-secondary">Want to Hire Me? Have a Question or a Request?</p>
+                    <p class="lead text-secondary">Fill out the form below.</p>
                 </div>
             </div>
         </div>
@@ -71,20 +72,28 @@
                     <div class="row justify-content-center py-4 py-lg-5">
                         <div class="col-md-10 col-lg-8">
                             <p>Fields marked with an <span class="text-primary">*</span> are required.</p>
-                            <form class="py-4" id="contactForm">
+                            <form class="py-4" id="contactForm" action="/forms/requests" method="POST">
                                 <div class="form-group">
                                     <label for="inputName">Name <span class="text-primary">*</span></label>
-                                    <input type="text" class="form-control" id="inputName" placeholder="Enter your name" required>
+                                    <input type="text" class="form-control" name="inputName" placeholder="Enter your name" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputEmail">Email <span class="text-primary">*</span></label>
-                                    <input type="email" class="form-control" id="inputEmail" placeholder="Enter your email address" required>
+                                    <input type="email" class="form-control" name="inputEmail" placeholder="Enter your email address" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="messageTetxarea">Message <span class="text-primary">*</span></label>
-                                    <textarea class="form-control" id="messageTextArea" rows="9" placeholder="Enter your message" required></textarea>
+                                    <label for="inputCompany">Company<span class="text-primary"> (Optional)</span></label>
+                                    <input type="text" class="form-control" name="inputCompany" placeholder="Enter your company">
                                 </div>
-                                <button type="submit" class="btn btn-pill btn-primary">Submit</button><h4>By submitting, you agree with the <a href="/tos">terms and conditions</a></h4>
+                                <div class="form-group">
+                                    <label for="inputRequestType">Request Type<span class="text-primary">*</span></label>
+                                    <input type="text" class="form-control" name="inputRequestType" placeholder="Nature of Request (ex. Hiring Request, Question, Feedback, etc.">
+                                </div>
+                                <div class="form-group">
+                                    <label for="messageTextArea">Message <span class="text-primary">*</span></label>
+                                    <textarea class="form-control" name="messageTextArea" rows="9" placeholder="Enter your message" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-pill btn-primary">Submit</button><h5>By submitting, you agree with the <a href="/tos" class="termsLink">terms and conditions</a>.</h5>
                             </form>
                         </div>
                     </div>

@@ -2,13 +2,11 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const formSchema = Schema({
-  name: String,
-  company: String,
-  email: String,
-  service: String,
-  description: String,
-  timeLimit: String,
-  message: String
+  inputName: String,
+  inputEmail: String,
+  inputCompany: String,
+  inputRequestType: String,
+  messageTextArea: String
 })
 
 const Form = mongoose.model('Form', formSchema);

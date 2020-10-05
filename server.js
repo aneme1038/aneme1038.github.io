@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const session = require('express-session');
 const db = mongoose.connection;
-var $ = require('jquery');
 require('dotenv').config();
 
 //-------
@@ -48,6 +47,7 @@ app.use(session({
   saveUninitialized: false
 }))
 app.use(express.static(__dirname + '/assets/'));
+app.use(methodOverride('_method'));
 
 //========
 //Routes
@@ -75,6 +75,7 @@ app.post('/', (req, res) => {
   console.log('Data:', req.body);
   res.json({message: 'Message received!'})
 })
+
 
 //---------
 //Controllers

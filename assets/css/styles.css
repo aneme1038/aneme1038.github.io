@@ -27,6 +27,16 @@ main {
     background-image: url("../img/int-blue-circuit.jpg");
     color: rgb(233, 231, 231);
 }
+.termsLink{
+    text-decoration: underline;
+}
+.listingArea {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 75%;
+  }
 
 /*ViewPorts or Screensizes beyond Mobile*/
 @media (min-width: 325px){
