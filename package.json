@@ -19,8 +19,8 @@
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^2.2.0",
     "autoprefixer": "^9.8.0",
-    "browser-sync": "^2.26.7",
-    "cssnano": "^4.1.10",
+    "browser-sync": "^2.26.14",
+    "cssnano": "^4.1.11",
     "del": "^5.1.0",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
@@ -31,14 +31,14 @@
     "gulp-uglify": "^3.0.2"
   },
   "dependencies": {
-    "bcrypt": "^5.0.0",
-    "bootstrap": "^4.5.0",
+    "bcrypt": "^5.0.1",
+    "bootstrap": "^4.6.0",
     "dotenv": "^8.2.0",
-    "ejs": "^3.1.5",
+    "ejs": "^3.1.6",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "method-override": "^3.0.0",
-    "mongoose": "^5.10.5",
+    "mongoose": "^5.12.6",
     "popper.js": "^1.16.1",
     "zoom-vanilla.js": "^2.0.6"
   }
